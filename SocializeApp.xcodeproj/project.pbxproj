@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494DB57A2800567600A1AE31 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DB5792800567600A1AE31 /* RegisterViewController.swift */; };
+		494DB57C280059F500A1AE31 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */; };
 		4996F74327FDA83E0055CC58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F74227FDA83E0055CC58 /* AppDelegate.swift */; };
 		4996F74527FDA83E0055CC58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F74427FDA83E0055CC58 /* SceneDelegate.swift */; };
 		4996F74727FDA83E0055CC58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F74627FDA83E0055CC58 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		494DB5792800567600A1AE31 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4996F73F27FDA83E0055CC58 /* SocializeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocializeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4996F74227FDA83E0055CC58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4996F74427FDA83E0055CC58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				4996F75627FECE8B0055CC58 /* LoginViewController.swift */,
+				494DB5792800567600A1AE31 /* RegisterViewController.swift */,
+				494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4996F75727FECE8B0055CC58 /* LoginViewController.swift in Sources */,
+				494DB57A2800567600A1AE31 /* RegisterViewController.swift in Sources */,
+				494DB57C280059F500A1AE31 /* ForgotPasswordViewController.swift in Sources */,
 				4996F74727FDA83E0055CC58 /* ViewController.swift in Sources */,
 				4996F74327FDA83E0055CC58 /* AppDelegate.swift in Sources */,
 				4996F74527FDA83E0055CC58 /* SceneDelegate.swift in Sources */,
