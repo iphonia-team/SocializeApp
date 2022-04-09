@@ -17,14 +17,14 @@
 		4996F74C27FDA83E0055CC58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4996F74B27FDA83E0055CC58 /* Assets.xcassets */; };
 		4996F74F27FDA83E0055CC58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4996F74D27FDA83E0055CC58 /* LaunchScreen.storyboard */; };
 		4996F75727FECE8B0055CC58 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F75627FECE8B0055CC58 /* LoginViewController.swift */; };
+		49AC899F28015A5D006C8B99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 49AC899E28015A5D006C8B99 /* FirebaseAnalytics */; };
+		49AC89A128015A5D006C8B99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 49AC89A028015A5D006C8B99 /* FirebaseAuth */; };
+		49AC89A328015A5D006C8B99 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 49AC89A228015A5D006C8B99 /* FirebaseFirestore */; };
 		6EE0F9492801C5CF00F20CEA /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F9482801C5CF00F20CEA /* ChatListViewController.swift */; };
 		6EE0F94B2801C8C900F20CEA /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F94A2801C8C900F20CEA /* ChatCell.swift */; };
 		6EE0F94D2801CE7D00F20CEA /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F94C2801CE7D00F20CEA /* ChatRoomViewController.swift */; };
 		6EE0F94F2801D37F00F20CEA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F94E2801D37F00F20CEA /* TabBarController.swift */; };
 		6EE0F9512801D8D600F20CEA /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F9502801D8D600F20CEA /* CommunityViewController.swift */; };
-		49AC899F28015A5D006C8B99 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 49AC899E28015A5D006C8B99 /* FirebaseAnalytics */; };
-		49AC89A128015A5D006C8B99 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 49AC89A028015A5D006C8B99 /* FirebaseAuth */; };
-		49AC89A328015A5D006C8B99 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 49AC89A228015A5D006C8B99 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				6EE0F9412801B5FA00F20CEA /* TabBar */,
-				4996F75827FECEA90055CC58 /* Controllers */,
+				4996F75827FECEA90055CC58 /* Login */,
 				4996F74227FDA83E0055CC58 /* AppDelegate.swift */,
 				4996F74427FDA83E0055CC58 /* SceneDelegate.swift */,
 				4996F74627FDA83E0055CC58 /* ViewController.swift */,
@@ -94,14 +94,14 @@
 			path = SocializeApp;
 			sourceTree = "<group>";
 		};
-		4996F75827FECEA90055CC58 /* Controllers */ = {
+		4996F75827FECEA90055CC58 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				4996F75627FECE8B0055CC58 /* LoginViewController.swift */,
 				494DB5792800567600A1AE31 /* RegisterViewController.swift */,
 				494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */,
 			);
-			path = Controllers;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		6EE0F9412801B5FA00F20CEA /* TabBar */ = {
