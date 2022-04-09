@@ -77,7 +77,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNY-Ck-LNh">
                                         <rect key="frame" x="49" y="0.0" width="245" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -97,6 +97,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Register">
                                             <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="5VA-sl-2PQ" kind="show" id="a9o-jT-Euy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -177,10 +180,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="uUK-cM-jqb">
-                                <rect key="frame" x="50" y="207" width="314" height="56"/>
+                                <rect key="frame" x="50" y="251" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HA1-yR-MzB">
-                                <rect key="frame" x="60" y="218" width="294" height="34"/>
+                                <rect key="frame" x="60" y="262" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="at.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uB5-Fb-tQO">
                                         <rect key="frame" x="0.0" y="0.5" width="34" height="33"/>
@@ -197,16 +200,16 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-88-4bO">
-                                <rect key="frame" x="30" y="104" width="354" height="43"/>
+                                <rect key="frame" x="30" y="148" width="354" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="4Jz-2C-t8M">
-                                <rect key="frame" x="50" y="313" width="314" height="56"/>
+                                <rect key="frame" x="50" y="357" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-NM-BGb">
-                                <rect key="frame" x="60" y="324" width="294" height="34"/>
+                                <rect key="frame" x="60" y="368" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Cg0-G3-2Id">
                                         <rect key="frame" x="0.0" y="1.5" width="34" height="31"/>
@@ -223,10 +226,10 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="OMc-Fg-Ek0">
-                                <rect key="frame" x="50" y="419" width="314" height="56"/>
+                                <rect key="frame" x="50" y="463" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dtq-Pr-SJ8">
-                                <rect key="frame" x="60" y="430" width="294" height="34"/>
+                                <rect key="frame" x="60" y="474" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S93-7V-NbP">
                                         <rect key="frame" x="0.0" y="0.5" width="34" height="32.5"/>
@@ -238,15 +241,15 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2r-TT-eEc">
                                         <rect key="frame" x="49" y="0.0" width="245" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-BA-9N1">
-                                <rect key="frame" x="50" y="525" width="314" height="56"/>
+                                <rect key="frame" x="50" y="569" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Obj-VT-TSW">
-                                <rect key="frame" x="60" y="536" width="294" height="34"/>
+                                <rect key="frame" x="60" y="580" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mf9-kN-T9v">
                                         <rect key="frame" x="0.0" y="0.5" width="34" height="33"/>
@@ -258,16 +261,19 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-YX-THl">
                                         <rect key="frame" x="49" y="0.0" width="245" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuE-sZ-fGr">
-                                <rect key="frame" x="150" y="641" width="114" height="31"/>
+                                <rect key="frame" x="150" y="685" width="114" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register">
                                     <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapRegisterButton:" destination="5VA-sl-2PQ" eventType="touchUpInside" id="UOd-gH-NzG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eZR-HZ-mhg"/>
@@ -305,6 +311,14 @@
                             <constraint firstItem="zLT-88-4bO" firstAttribute="top" secondItem="eZR-HZ-mhg" secondAttribute="top" constant="60" id="ze8-10-Xgj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="w69-YK-VkN"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="xcZ-YX-THl" id="60e-lA-PdU"/>
+                        <outlet property="emailTextField" destination="SF1-E3-nRn" id="YIt-QD-TfL"/>
+                        <outlet property="nameTextField" destination="CGl-cd-dsl" id="a2a-4Y-eoN"/>
+                        <outlet property="passwordTextField" destination="h2r-TT-eEc" id="0RS-sy-yJs"/>
+                        <outlet property="registerButton" destination="iuE-sZ-fGr" id="dO0-P7-x4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDU-6u-MIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

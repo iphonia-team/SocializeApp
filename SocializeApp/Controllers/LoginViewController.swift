@@ -15,25 +15,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         loginButton.isEnabled = false
         configureInputField()
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-            
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-      
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
     }
     
     private func configureInputField() {
@@ -53,5 +36,4 @@ class LoginViewController: UIViewController {
     private func validateInputField() {
         self.loginButton.isEnabled = !(self.emailTextField.text?.isEmpty ?? true) && !(self.passwordTextField.text?.isEmpty ?? true)
     }
-
 }
