@@ -14,16 +14,13 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tapLoginButton(_ sender: UIButton) {
+        print("tap")
+        guard let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+                as? TabBarController else { return }
+        
+        tabBarController.modalPresentationStyle = .fullScreen
+        self.present(tabBarController, animated: true, completion: nil)
+        print("tap")
     }
-    */
-
 }
