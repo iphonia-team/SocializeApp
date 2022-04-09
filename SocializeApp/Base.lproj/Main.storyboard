@@ -77,7 +77,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNY-Ck-LNh">
                                         <rect key="frame" x="49" y="0.0" width="245" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -100,6 +100,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Register">
                                             <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="5VA-sl-2PQ" kind="show" id="a9o-jT-Euy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -161,6 +164,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gtp-1H-RoU"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="eoQ-Zv-l8B" id="Gr6-Ra-QuT"/>
+                        <outlet property="loginButton" destination="SnB-bt-UvH" id="mcK-v1-WQL"/>
+                        <outlet property="passwordTextField" destination="bNY-Ck-LNh" id="Me8-1x-N31"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,10 +183,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="uUK-cM-jqb">
-                                <rect key="frame" x="50" y="207" width="314" height="56"/>
+                                <rect key="frame" x="50" y="251" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HA1-yR-MzB">
-                                <rect key="frame" x="60" y="218" width="294" height="34"/>
+                                <rect key="frame" x="60" y="262" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="at.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uB5-Fb-tQO">
                                         <rect key="frame" x="0.0" y="1" width="34" height="32.666666666666671"/>
@@ -195,16 +203,16 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-88-4bO">
-                                <rect key="frame" x="30" y="104" width="354" height="43"/>
+                                <rect key="frame" x="30" y="148" width="354" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="4Jz-2C-t8M">
-                                <rect key="frame" x="50" y="313" width="314" height="56"/>
+                                <rect key="frame" x="50" y="357" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-NM-BGb">
-                                <rect key="frame" x="60" y="324" width="294" height="34"/>
+                                <rect key="frame" x="60" y="368" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Cg0-G3-2Id">
                                         <rect key="frame" x="0.0" y="1.9999999999999982" width="34" height="30.666666666666664"/>
@@ -221,10 +229,10 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="OMc-Fg-Ek0">
-                                <rect key="frame" x="50" y="419" width="314" height="56"/>
+                                <rect key="frame" x="50" y="463" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dtq-Pr-SJ8">
-                                <rect key="frame" x="60" y="430" width="294" height="34"/>
+                                <rect key="frame" x="60" y="474" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S93-7V-NbP">
                                         <rect key="frame" x="0.0" y="1" width="34" height="32"/>
@@ -236,15 +244,15 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2r-TT-eEc">
                                         <rect key="frame" x="49" y="0.0" width="245" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-BA-9N1">
-                                <rect key="frame" x="50" y="525" width="314" height="56"/>
+                                <rect key="frame" x="50" y="569" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Obj-VT-TSW">
-                                <rect key="frame" x="60" y="536" width="294" height="34"/>
+                                <rect key="frame" x="60" y="580" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mf9-kN-T9v">
                                         <rect key="frame" x="0.0" y="1" width="34" height="32.666666666666671"/>
@@ -256,16 +264,19 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-YX-THl">
                                         <rect key="frame" x="49" y="0.0" width="245" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuE-sZ-fGr">
-                                <rect key="frame" x="160" y="641" width="94" height="31"/>
+                                <rect key="frame" x="150" y="685" width="114" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register">
                                     <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapRegisterButton:" destination="5VA-sl-2PQ" eventType="touchUpInside" id="UOd-gH-NzG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eZR-HZ-mhg"/>
@@ -274,7 +285,7 @@
                             <constraint firstItem="eZR-HZ-mhg" firstAttribute="trailing" secondItem="OMc-Fg-Ek0" secondAttribute="trailing" constant="50" id="1Cz-iN-czw"/>
                             <constraint firstItem="nAU-BA-9N1" firstAttribute="top" secondItem="OMc-Fg-Ek0" secondAttribute="bottom" constant="50" id="2qZ-43-u9H"/>
                             <constraint firstItem="nAU-BA-9N1" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="50" id="2uP-TH-M57"/>
-                            <constraint firstItem="iuE-sZ-fGr" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="160" id="41N-04-sHo"/>
+                            <constraint firstItem="iuE-sZ-fGr" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="150" id="41N-04-sHo"/>
                             <constraint firstItem="4Jz-2C-t8M" firstAttribute="top" secondItem="uUK-cM-jqb" secondAttribute="bottom" constant="50" id="4Qr-Lc-O2G"/>
                             <constraint firstItem="Dtq-Pr-SJ8" firstAttribute="centerY" secondItem="OMc-Fg-Ek0" secondAttribute="centerY" id="4tf-id-fm7"/>
                             <constraint firstItem="eZR-HZ-mhg" firstAttribute="trailing" secondItem="dWQ-NM-BGb" secondAttribute="trailing" constant="60" id="6FA-Tf-6H8"/>
@@ -297,12 +308,20 @@
                             <constraint firstItem="uUK-cM-jqb" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="50" id="lnf-pY-y2k"/>
                             <constraint firstItem="OMc-Fg-Ek0" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="50" id="pmM-pg-Ut3"/>
                             <constraint firstItem="Obj-VT-TSW" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="60" id="q6h-X0-ZYI"/>
-                            <constraint firstItem="eZR-HZ-mhg" firstAttribute="trailing" secondItem="iuE-sZ-fGr" secondAttribute="trailing" constant="160" id="uRD-I7-CT3"/>
+                            <constraint firstItem="eZR-HZ-mhg" firstAttribute="trailing" secondItem="iuE-sZ-fGr" secondAttribute="trailing" constant="150" id="uRD-I7-CT3"/>
                             <constraint firstItem="HA1-yR-MzB" firstAttribute="leading" secondItem="eZR-HZ-mhg" secondAttribute="leading" constant="60" id="vaR-50-JX4"/>
                             <constraint firstItem="eZR-HZ-mhg" firstAttribute="trailing" secondItem="zLT-88-4bO" secondAttribute="trailing" constant="30" id="wnm-lz-AeR"/>
                             <constraint firstItem="zLT-88-4bO" firstAttribute="top" secondItem="eZR-HZ-mhg" secondAttribute="top" constant="60" id="ze8-10-Xgj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="w69-YK-VkN"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="xcZ-YX-THl" id="60e-lA-PdU"/>
+                        <outlet property="emailTextField" destination="SF1-E3-nRn" id="YIt-QD-TfL"/>
+                        <outlet property="nameTextField" destination="CGl-cd-dsl" id="a2a-4Y-eoN"/>
+                        <outlet property="passwordTextField" destination="h2r-TT-eEc" id="0RS-sy-yJs"/>
+                        <outlet property="registerButton" destination="iuE-sZ-fGr" id="dO0-P7-x4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDU-6u-MIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -343,7 +362,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kf1-XL-Db6">
-                                <rect key="frame" x="130" y="433" width="154" height="31"/>
+                                <rect key="frame" x="100" y="433" width="214" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Find Your Password">
                                     <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -356,11 +375,11 @@
                             <constraint firstItem="rWh-39-goo" firstAttribute="trailing" secondItem="Hba-MW-ArB" secondAttribute="trailing" constant="30" id="1kw-in-ZPG"/>
                             <constraint firstItem="kf1-XL-Db6" firstAttribute="top" secondItem="4bE-qP-fp9" secondAttribute="bottom" constant="80" id="68k-Nx-kN2"/>
                             <constraint firstItem="B7V-Sd-ebm" firstAttribute="centerY" secondItem="4bE-qP-fp9" secondAttribute="centerY" id="B1y-Wv-wuf"/>
-                            <constraint firstItem="rWh-39-goo" firstAttribute="trailing" secondItem="kf1-XL-Db6" secondAttribute="trailing" constant="130" id="Jn8-R7-ksk"/>
+                            <constraint firstItem="rWh-39-goo" firstAttribute="trailing" secondItem="kf1-XL-Db6" secondAttribute="trailing" constant="100" id="Jn8-R7-ksk"/>
                             <constraint firstItem="rWh-39-goo" firstAttribute="trailing" secondItem="4bE-qP-fp9" secondAttribute="trailing" constant="50" id="LRQ-nM-zOF"/>
                             <constraint firstItem="Hba-MW-ArB" firstAttribute="top" secondItem="rWh-39-goo" secondAttribute="top" constant="60" id="Mcg-qL-5DF"/>
                             <constraint firstItem="B7V-Sd-ebm" firstAttribute="leading" secondItem="rWh-39-goo" secondAttribute="leading" constant="60" id="NHF-e0-Oms"/>
-                            <constraint firstItem="kf1-XL-Db6" firstAttribute="leading" secondItem="rWh-39-goo" secondAttribute="leading" constant="130" id="NRD-Ug-ScG"/>
+                            <constraint firstItem="kf1-XL-Db6" firstAttribute="leading" secondItem="rWh-39-goo" secondAttribute="leading" constant="100" id="NRD-Ug-ScG"/>
                             <constraint firstItem="Hba-MW-ArB" firstAttribute="leading" secondItem="rWh-39-goo" secondAttribute="leading" constant="30" id="QSS-ZG-KnD"/>
                             <constraint firstItem="4bE-qP-fp9" firstAttribute="leading" secondItem="rWh-39-goo" secondAttribute="leading" constant="50" id="SYe-4H-Xr7"/>
                             <constraint firstItem="rWh-39-goo" firstAttribute="trailing" secondItem="B7V-Sd-ebm" secondAttribute="trailing" constant="60" id="SaQ-1v-ip0"/>
