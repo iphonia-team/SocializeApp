@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,6 +25,45 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func tapRegisterButton(_ sender: UIButton) {
+        let email = emailTextField.text!
+        let name = nameTextField.text!
+        let password = passwordTextField.text!
+        let confirmPassword = confirmPasswordTextField.text!
+        guard password == confirmPassword else {
+            let alert = UIAlertController(title: "Error", message: "Password and confirmation password are not the same.", preferredStyle: UIAlertController.Style.alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            present(alert,animated: true,completion: nil)
+            return
+        }
+        print(email)
+        print(name)
+        print(password)
+        print(confirmPassword)
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                self.present(alert,animated: true,completion: nil)
+            }
+
+            guard let user = authResult?.user else {
+                return
+            }
+
+            print(user)
+            
+            let alert = UIAlertController(title: "Good", message: "Please Login!", preferredStyle: UIAlertController.Style.alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(alertAction)
+            self.present(alert,animated: true,completion: nil)
+            
+            
+        }
     }
     
     private func configureInputField() {
@@ -88,4 +128,8 @@ class RegisterViewController: UIViewController {
         self.view.endEditing(true)
     }
 
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+    
 }
