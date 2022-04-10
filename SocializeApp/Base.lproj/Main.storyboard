@@ -631,19 +631,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="at.circle" catalog="system" width="128" height="121"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
-        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
-        <image name="lock" catalog="system" width="128" height="128"/>
-        <image name="lock.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="lock.fill" catalog="system" width="128" height="128"/>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
-        <image name="person.3" catalog="system" width="128" height="62"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="at.circle" catalog="system" width="32" height="32"/>
+        <image name="gearshape" catalog="system" width="32" height="32"/>
+        <image name="gearshape.fill" catalog="system" width="32" height="32"/>
+        <image name="list.bullet.rectangle.portrait" catalog="system" width="32" height="32"/>
+        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="32" height="32"/>
+        <image name="lock" catalog="system" width="32" height="32"/>
+        <image name="lock.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="lock.fill" catalog="system" width="32" height="32"/>
+        <image name="message" catalog="system" width="32" height="32"/>
+        <image name="message.fill" catalog="system" width="32" height="32"/>
+        <image name="person.3" catalog="system" width="32" height="32"/>
+        <image name="person.3.fill" catalog="system" width="32" height="32"/>
+        <image name="person.fill" catalog="system" width="32" height="32"/>
         <image name="rectangle" width="343" height="56"/>
         <image name="socialize-logo" width="180" height="180"/>
         <systemColor name="systemBackgroundColor">
