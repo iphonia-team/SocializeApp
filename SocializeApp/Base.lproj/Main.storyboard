@@ -537,10 +537,10 @@
             </objects>
             <point key="canvasLocation" x="471" y="826"/>
         </scene>
-        <!--View Controller-->
+        <!--Community View Controller-->
         <scene sceneID="UoD-Ez-grK">
             <objects>
-                <viewController storyboardIdentifier="CommunityViewController" id="QMh-tx-N8r" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityViewController" id="QMh-tx-N8r" customClass="CommunityViewController" customModule="SocializeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Kx-fg-bd4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,6 +552,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeZ-7d-nQa">
+                                <rect key="frame" x="166" y="545" width="83" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="User Info"/>
+                                <connections>
+                                    <action selector="tapUserInfo:" destination="QMh-tx-N8r" eventType="touchUpInside" id="HNb-Nz-LmA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AOl-Jg-MVC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

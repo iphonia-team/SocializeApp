@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CommunityViewController: UIViewController {
 
@@ -15,7 +16,15 @@ class CommunityViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func tapUserInfo(_ sender: UIButton) {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let email = user.email
+            print(email)
+            try? Auth.auth().signOut()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

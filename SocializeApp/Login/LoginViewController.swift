@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -22,13 +23,27 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
-        print("tap")
-        guard let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
-                as? TabBarController else { return }
         
-        tabBarController.modalPresentationStyle = .fullScreen
-        self.present(tabBarController, animated: true, completion: nil)
-        print("tap")
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
+            
+            guard let strongSelf = self else { return }
+            
+            // 에러 처리
+            if authResult == nil {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                strongSelf.present(alert,animated: true,completion: nil)
+            } else {
+                guard let tabBarController = strongSelf.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+                        as? TabBarController else { return }
+                
+                tabBarController.modalPresentationStyle = .fullScreen
+                strongSelf.present(tabBarController, animated: true, completion: nil)
+            }
+        }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
