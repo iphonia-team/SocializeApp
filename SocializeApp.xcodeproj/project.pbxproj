@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4913D9E22803BCF60089C3F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913D9E12803BCF60089C3F2 /* User.swift */; };
 		4913D9E42803C5650089C3F2 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913D9E32803C5650089C3F2 /* Countries.swift */; };
+		4913D9E6280409850089C3F2 /* ChoosingLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913D9E5280409850089C3F2 /* ChoosingLanguageViewController.swift */; };
 		494DB57A2800567600A1AE31 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DB5792800567600A1AE31 /* RegisterViewController.swift */; };
 		494DB57C280059F500A1AE31 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */; };
 		495BD3F2280152E30022CC11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495BD3F1280152E30022CC11 /* GoogleService-Info.plist */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		4913D9E12803BCF60089C3F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4913D9E32803C5650089C3F2 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		4913D9E5280409850089C3F2 /* ChoosingLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingLanguageViewController.swift; sourceTree = "<group>"; };
 		494DB5792800567600A1AE31 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		495BD3F1280152E30022CC11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */,
 				4913D9E12803BCF60089C3F2 /* User.swift */,
 				4913D9E32803C5650089C3F2 /* Countries.swift */,
+				4913D9E5280409850089C3F2 /* ChoosingLanguageViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4913D9E6280409850089C3F2 /* ChoosingLanguageViewController.swift in Sources */,
 				4996F75727FECE8B0055CC58 /* LoginViewController.swift in Sources */,
 				494DB57A2800567600A1AE31 /* RegisterViewController.swift in Sources */,
 				6EE0F94B2801C8C900F20CEA /* ChatCell.swift in Sources */,

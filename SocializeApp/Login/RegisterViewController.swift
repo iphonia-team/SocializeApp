@@ -7,8 +7,6 @@
 
 import UIKit
 import Foundation
-import FirebaseAuth
-import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,6 +18,7 @@ class RegisterViewController: UIViewController {
     
     private var keyboardIsOpened = false
     private let pickerView = UIPickerView()
+    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,10 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func tapRegisterButton(_ sender: UIButton) {
-        let user = User(email: emailTextField.text!, name: nameTextField.text!, password: passwordTextField.text!, nationality: nationalityTextField.text!)
+        user.email = emailTextField.text
+        user.name = nameTextField.text
+        user.password = passwordTextField.text
+        user.nationality = nationalityTextField.text
         let confirmPassword = confirmPasswordTextField.text!
         
         // 패스워드와 패스워드 확인 문자열 비교
@@ -42,7 +44,7 @@ class RegisterViewController: UIViewController {
         }
         
         // 학교 이메일을 사용했는지 확인
-        guard user.email.contains("ac.kr") else {
+        guard user.email!.contains("ac.kr") else {
             let alert = UIAlertController(title: "Error", message: "Please use your university email.", preferredStyle: UIAlertController.Style.alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(alertAction)
@@ -50,64 +52,32 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        // Firebase에 User 생성
-        Auth.auth().createUser(withEmail: user.email, password: user.password) { authResult, error in
-            if let error = error {
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(alertAction)
-                self.present(alert,animated: true,completion: nil)
+        self.performSegue(withIdentifier: "registerNextSegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "registerNextSegue" {
+            if let vc = segue.destination as? ChoosingLanguageViewController {
+                vc.user = self.user
             }
-            
-            // user 생성되었는지 확인
-            guard (authResult?.user) != nil else {
-                return
-            }
-
-            // Firestore에 사용자 정보 저장
-            let db = Firestore.firestore()
-            db.collection("users").document(user.email).setData(["email" : user.email, "name" : user.name, "nationality" : user.nationality])
-            
-            // 완료 alert 발생
-            let alert = UIAlertController(title: "Good", message: "Please Login!", preferredStyle: UIAlertController.Style.alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
-                self.navigationController?.popViewController(animated: true)
-            }
-            alert.addAction(alertAction)
-            self.present(alert,animated: true,completion: nil)
         }
     }
     
     private func configureInputField() {
-        self.emailTextField.addTarget(self, action: #selector(self.emailTextFieldDidChange), for: .editingChanged)
-        self.nameTextField.addTarget(self, action: #selector(self.nameTextFieldDidChange), for: .editingChanged)
-        self.passwordTextField.addTarget(self, action: #selector(self.passwordTextFieldDidChange), for: .editingChanged)
-        self.confirmPasswordTextField.addTarget(self, action: #selector(self.confirmPasswordTextFieldDidChange), for: .editingChanged)
+        self.emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
+        self.nameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
+        self.passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
+        self.confirmPasswordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
     }
     
     private func configurePickerView() {
         self.pickerView.delegate = self
-        self.nationalityTextField.addTarget(self, action: #selector(self.nationalityTextFieldDidChange), for: .editingChanged)
+        self.nationalityTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
         self.nationalityTextField.inputView = self.pickerView
     }
 
-    @objc private func emailTextFieldDidChange(_ textField: UITextField) {
-        self.validateInputField()
-    }
-    
-    @objc private func nameTextFieldDidChange(_ textField: UITextField) {
-        self.validateInputField()
-    }
-    
-    @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
-        self.validateInputField()
-    }
-    
-    @objc private func confirmPasswordTextFieldDidChange(_ textField: UITextField) {
-        self.validateInputField()
-    }
-    
-    @objc private func nationalityTextFieldDidChange(_ textField: UITextField) {
+    @objc private func textFieldDidChange(_ textField: UITextField) {
         self.validateInputField()
     }
     
