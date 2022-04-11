@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -57,13 +58,17 @@ class RegisterViewController: UIViewController {
                 alert.addAction(alertAction)
                 self.present(alert,animated: true,completion: nil)
             }
-
-            guard let user = authResult?.user else {
+            
+            // user 생성되었는지 확인
+            guard (authResult?.user) != nil else {
                 return
             }
 
-            print(user)
+            // Firestore에 사용자 정보 저장
+            let db = Firestore.firestore()
+            db.collection("users").document(user.email).setData(["email" : user.email, "name" : user.name, "nationality" : user.nationality])
             
+            // 완료 alert 발생
             let alert = UIAlertController(title: "Good", message: "Please Login!", preferredStyle: UIAlertController.Style.alert)
             let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
                 self.navigationController?.popViewController(animated: true)
@@ -82,6 +87,7 @@ class RegisterViewController: UIViewController {
     
     private func configurePickerView() {
         self.pickerView.delegate = self
+        self.nationalityTextField.addTarget(self, action: #selector(self.nationalityTextFieldDidChange), for: .editingChanged)
         self.nationalityTextField.inputView = self.pickerView
     }
 
@@ -98,6 +104,10 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func confirmPasswordTextFieldDidChange(_ textField: UITextField) {
+        self.validateInputField()
+    }
+    
+    @objc private func nationalityTextFieldDidChange(_ textField: UITextField) {
         self.validateInputField()
     }
     
@@ -154,6 +164,7 @@ extension RegisterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.nationalityTextField.text = Countries.countryList[row]
+        self.nationalityTextField.sendActions(for: .editingChanged)
     }
     
 }
