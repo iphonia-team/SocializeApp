@@ -6,42 +6,51 @@
 //
 
 import UIKit
-import Firebase
+import Foundation
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var nationalityTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
-    var keyboardIsOpened = false
+    private var keyboardIsOpened = false
+    private let pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerButton.isEnabled = false
         self.configureInputField()
-        // Do any additional setup after loading the view.
+        self.configurePickerView()
     }
     
     @IBAction func tapRegisterButton(_ sender: UIButton) {
-        let email = emailTextField.text!
-        let name = nameTextField.text!
-        let password = passwordTextField.text!
+        let user = User(email: emailTextField.text!, name: nameTextField.text!, password: passwordTextField.text!, nationality: nationalityTextField.text!)
         let confirmPassword = confirmPasswordTextField.text!
-        guard password == confirmPassword else {
+        
+        // 패스워드와 패스워드 확인 문자열 비교
+        guard user.password == confirmPassword else {
             let alert = UIAlertController(title: "Error", message: "Password and confirmation password are not the same.", preferredStyle: UIAlertController.Style.alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(alertAction)
             present(alert,animated: true,completion: nil)
             return
         }
-        print(email)
-        print(name)
-        print(password)
-        print(confirmPassword)
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        // 학교 이메일을 사용했는지 확인
+        guard user.email.contains("ac.kr") else {
+            let alert = UIAlertController(title: "Error", message: "Please use your university email.", preferredStyle: UIAlertController.Style.alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            present(alert,animated: true,completion: nil)
+            return
+        }
+        
+        // Firebase에 User 생성
+        Auth.auth().createUser(withEmail: user.email, password: user.password) { authResult, error in
             if let error = error {
                 let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -61,8 +70,6 @@ class RegisterViewController: UIViewController {
             }
             alert.addAction(alertAction)
             self.present(alert,animated: true,completion: nil)
-            
-            
         }
     }
     
@@ -71,6 +78,11 @@ class RegisterViewController: UIViewController {
         self.nameTextField.addTarget(self, action: #selector(self.nameTextFieldDidChange), for: .editingChanged)
         self.passwordTextField.addTarget(self, action: #selector(self.passwordTextFieldDidChange), for: .editingChanged)
         self.confirmPasswordTextField.addTarget(self, action: #selector(self.confirmPasswordTextFieldDidChange), for: .editingChanged)
+    }
+    
+    private func configurePickerView() {
+        self.pickerView.delegate = self
+        self.nationalityTextField.inputView = self.pickerView
     }
 
     @objc private func emailTextFieldDidChange(_ textField: UITextField) {
@@ -98,7 +110,7 @@ class RegisterViewController: UIViewController {
     }
     
     private func validateInputField() {
-        self.registerButton.isEnabled = !(self.emailTextField.text?.isEmpty ?? true) && !(self.nameTextField.text?.isEmpty ?? true) && !(self.passwordTextField.text?.isEmpty ?? true) && !(self.confirmPasswordTextField.text?.isEmpty ?? true)
+        self.registerButton.isEnabled = !(self.emailTextField.text?.isEmpty ?? true) && !(self.nameTextField.text?.isEmpty ?? true) && !(self.passwordTextField.text?.isEmpty ?? true) && !(self.confirmPasswordTextField.text?.isEmpty ?? true) && !(self.nationalityTextField.text?.isEmpty ?? true)
     }
     
     private func addKeyboardNotifications() {
@@ -130,6 +142,18 @@ class RegisterViewController: UIViewController {
 
 }
 
-extension RegisterViewController: UITextFieldDelegate {
+extension RegisterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Countries.countryList.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Countries.countryList[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.nationalityTextField.text = Countries.countryList[row]
+    }
     
 }
