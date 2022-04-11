@@ -348,7 +348,7 @@
                         <outlet property="nationalityTextField" destination="6Ye-ol-B76" id="rwd-5N-O2d"/>
                         <outlet property="passwordTextField" destination="h2r-TT-eEc" id="0RS-sy-yJs"/>
                         <outlet property="registerButton" destination="iuE-sZ-fGr" id="dO0-P7-x4d"/>
-                        <segue destination="ndO-C7-sn9" kind="presentation" identifier="registerNextSegue" id="tBu-PY-FlI"/>
+                        <segue destination="ndO-C7-sn9" kind="show" identifier="registerNextSegue" id="tBu-PY-FlI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDU-6u-MIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -360,26 +360,26 @@
             <objects>
                 <viewController id="ndO-C7-sn9" customClass="ChoosingLanguageViewController" customModule="SocializeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R1s-kT-VAx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I can teach..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oet-cU-aRc">
-                                <rect key="frame" x="50" y="187" width="314" height="20.333333333333343"/>
+                                <rect key="frame" x="50" y="201" width="314" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I wanna learn..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv6-wV-WPl">
-                                <rect key="frame" x="50" y="323.33333333333331" width="314" height="20.333333333333314"/>
+                                <rect key="frame" x="50" y="337.33333333333331" width="314" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-sc-9xd">
-                                <rect key="frame" x="50" y="217.33333333333334" width="314" height="56.000000000000028"/>
+                                <rect key="frame" x="50" y="231.33333333333337" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AKg-i2-qNN">
-                                <rect key="frame" x="60" y="228.33333333333334" width="294" height="34.000000000000028"/>
+                                <rect key="frame" x="60" y="242.33333333333337" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jpb-rU-QUv">
                                         <rect key="frame" x="0.0" y="-0.66666666666666785" width="34" height="34.666666666666671"/>
@@ -396,10 +396,10 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="wHk-dx-LC6">
-                                <rect key="frame" x="50" y="353.66666666666669" width="314" height="56"/>
+                                <rect key="frame" x="50" y="367.66666666666669" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-TR-KRh">
-                                <rect key="frame" x="60" y="364.66666666666669" width="294" height="34"/>
+                                <rect key="frame" x="60" y="378.66666666666669" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hands.clap" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Ib-75-tM7">
                                         <rect key="frame" x="0.0" y="-1.3333333333333321" width="34" height="37"/>
@@ -416,13 +416,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-eB-RS4">
-                                <rect key="frame" x="30" y="84" width="354" height="43"/>
+                                <rect key="frame" x="30" y="98" width="354" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-pm-tI7">
-                                <rect key="frame" x="110" y="509.66666666666674" width="194" height="31"/>
+                                <rect key="frame" x="110" y="523.66666666666663" width="194" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Done!">
                                     <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -436,7 +436,7 @@
                         <viewLayoutGuide key="safeArea" id="ENY-3F-jfw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Qxf-eB-RS4" firstAttribute="top" secondItem="ENY-3F-jfw" secondAttribute="top" constant="40" id="Ar8-He-yuY"/>
+                            <constraint firstItem="Qxf-eB-RS4" firstAttribute="top" secondItem="ENY-3F-jfw" secondAttribute="top" constant="10" id="Ar8-He-yuY"/>
                             <constraint firstItem="Oet-cU-aRc" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="D8k-Gb-0rp"/>
                             <constraint firstItem="AKg-i2-qNN" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="60" id="PQ4-hv-Jlk"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="AKg-i2-qNN" secondAttribute="trailing" constant="60" id="R6b-79-SQr"/>

@@ -31,6 +31,9 @@ class ChoosingLanguageViewController: UIViewController {
     
     @IBAction func tapDoneButton(_ sender: UIButton) {
         
+        self.user.learningLanguage = learningTextField.text
+        self.user.teachingLanguage = teachingTextField.text
+        
         // Firebase에 User 생성
         Auth.auth().createUser(withEmail: user.email!, password: user.password!) { authResult, error in
             if let error = error {
@@ -45,12 +48,6 @@ class ChoosingLanguageViewController: UIViewController {
                 return
             }
             
-            
-            
-            // Firestore에 사용자 정보 저장
-            let db = Firestore.firestore()
-            db.collection("users").document(self.user.email!).setData(["email" : self.user.email!, "name" : self.user.name!, "nationality" : self.user.nationality!])
-            
             // 완료 alert 발생
             let alert = UIAlertController(title: "Good", message: "Please Login!", preferredStyle: UIAlertController.Style.alert)
             let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -60,6 +57,10 @@ class ChoosingLanguageViewController: UIViewController {
             alert.addAction(alertAction)
             self.present(alert,animated: true,completion: nil)
         }
+        
+        // Firestore에 사용자 정보 저장
+        let db = Firestore.firestore()
+        db.collection("users").document(self.user.email!).setData(["email" : self.user.email!, "name" : self.user.name!, "nationality" : self.user.nationality!, "teachingLanguage" : self.user.teachingLanguage!, "learningLanguage" : self.user.learningLanguage!])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
