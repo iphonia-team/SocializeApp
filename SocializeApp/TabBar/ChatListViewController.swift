@@ -42,7 +42,6 @@ extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let chatRoomViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController else { return }
         self.navigationController?.pushViewController(chatRoomViewController, animated: true)
-    }
-    
+    }    
     
 }

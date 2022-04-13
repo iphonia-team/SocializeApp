@@ -571,30 +571,106 @@
             </objects>
             <point key="canvasLocation" x="-671" y="1263"/>
         </scene>
-        <!--View Controller-->
+        <!--User List View Controller-->
         <scene sceneID="LgJ-Ov-Xft">
             <objects>
-                <viewController id="FmU-3w-lGF" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dFQ-PP-8Fd">
+                <viewController storyboardIdentifier="UserListViewController" id="FmU-3w-lGF" customClass="UserListViewController" customModule="SocializeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dFQ-PP-8Fd" customClass="UserLiss">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-FM-Jd7">
-                                <rect key="frame" x="186" y="420" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrx-32-bf5">
+                                <rect key="frame" x="14.999999999999993" y="88" width="123.33333333333331" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ftU-5R-DQR">
+                                <rect key="frame" x="0.0" y="129" width="414" height="684"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserListCell" rowHeight="50" id="Z2H-xU-LXe" customClass="UserListCell" customModule="SocializeApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2H-xU-LXe" id="YDw-W5-l5u">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kfY-t5-cgs">
+                                                    <rect key="frame" x="15" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="3V9-N4-vJj"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conor McGregor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAz-lu-CIp">
+                                                    <rect key="frame" x="85" y="14.666666666666664" width="132" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZg-1i-F2N">
+                                                    <rect key="frame" x="337" y="14.666666666666664" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kfY-t5-cgs" firstAttribute="leading" secondItem="YDw-W5-l5u" secondAttribute="leading" constant="15" id="399-lN-tKP"/>
+                                                <constraint firstItem="kfY-t5-cgs" firstAttribute="top" secondItem="YDw-W5-l5u" secondAttribute="top" constant="5" id="5VZ-6R-HOf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cZg-1i-F2N" secondAttribute="trailing" constant="15" id="AZb-pv-8oH"/>
+                                                <constraint firstAttribute="bottom" secondItem="kfY-t5-cgs" secondAttribute="bottom" constant="5" id="B3t-oI-9wO"/>
+                                                <constraint firstItem="cZg-1i-F2N" firstAttribute="centerY" secondItem="pAz-lu-CIp" secondAttribute="centerY" id="CZw-dE-gBE"/>
+                                                <constraint firstItem="pAz-lu-CIp" firstAttribute="leading" secondItem="kfY-t5-cgs" secondAttribute="trailing" constant="30" id="leU-j8-e3A"/>
+                                                <constraint firstItem="pAz-lu-CIp" firstAttribute="centerY" secondItem="kfY-t5-cgs" secondAttribute="centerY" id="xf8-OR-28U"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countryLabel" destination="cZg-1i-F2N" id="1tS-cK-LpR"/>
+                                            <outlet property="userListImageView" destination="kfY-t5-cgs" id="pT1-P7-K5W"/>
+                                            <outlet property="userNameLabel" destination="pAz-lu-CIp" id="ovJ-pA-QPt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d5q-18-JeS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hrx-32-bf5" firstAttribute="leading" secondItem="d5q-18-JeS" secondAttribute="leading" constant="15" id="HIL-hx-X7M"/>
+                            <constraint firstItem="hrx-32-bf5" firstAttribute="top" secondItem="d5q-18-JeS" secondAttribute="top" id="KCB-zQ-2Dt"/>
+                            <constraint firstItem="d5q-18-JeS" firstAttribute="bottom" secondItem="ftU-5R-DQR" secondAttribute="bottom" id="Psh-jz-uKS"/>
+                            <constraint firstItem="d5q-18-JeS" firstAttribute="trailing" secondItem="ftU-5R-DQR" secondAttribute="trailing" id="cyd-cE-uu2"/>
+                            <constraint firstItem="ftU-5R-DQR" firstAttribute="top" secondItem="hrx-32-bf5" secondAttribute="bottom" constant="5" id="hdQ-ko-h0l"/>
+                            <constraint firstItem="ftU-5R-DQR" firstAttribute="leading" secondItem="d5q-18-JeS" secondAttribute="leading" id="vAD-Wc-98p"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="person.3" catalog="system" selectedImage="person.3.fill" id="3Jc-si-bbs"/>
+                    <navigationItem key="navigationItem" id="Kvp-Rh-yYl"/>
+                    <connections>
+                        <outlet property="userListTableView" destination="ftU-5R-DQR" id="Exz-Lm-NMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vra-El-Hzk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-671" y="2633"/>
+            <point key="canvasLocation" x="203" y="2604"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8LN-XD-17Q">
+            <objects>
+                <navigationController id="wN8-z8-jKU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="person.3" catalog="system" selectedImage="person.3.fill" id="7SQ-gm-iuD"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A9A-Yt-4Vq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FmU-3w-lGF" kind="relationship" relationship="rootViewController" id="q5F-Nw-0Os"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oej-OH-qUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671" y="2604"/>
         </scene>
         <!--Chat List View Controller-->
         <scene sceneID="jUY-q2-5F9">
@@ -727,7 +803,7 @@
                     <connections>
                         <segue destination="QMh-tx-N8r" kind="relationship" relationship="viewControllers" id="lYA-AN-oHE"/>
                         <segue destination="UoI-x7-1dN" kind="relationship" relationship="viewControllers" id="DuR-d1-9D3"/>
-                        <segue destination="FmU-3w-lGF" kind="relationship" relationship="viewControllers" id="gqs-1T-ylE"/>
+                        <segue destination="wN8-z8-jKU" kind="relationship" relationship="viewControllers" id="nxd-Fi-pGI"/>
                         <segue destination="lxv-4E-qiV" kind="relationship" relationship="viewControllers" id="njp-dA-2ya"/>
                     </connections>
                 </tabBarController>
@@ -844,22 +920,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="at.circle" catalog="system" width="32" height="32"/>
-        <image name="gearshape" catalog="system" width="32" height="32"/>
-        <image name="gearshape.fill" catalog="system" width="32" height="32"/>
-        <image name="globe" catalog="system" width="32" height="32"/>
-        <image name="hand.thumbsup" catalog="system" width="32" height="32"/>
-        <image name="hands.clap" catalog="system" width="32" height="32"/>
-        <image name="list.bullet.rectangle.portrait" catalog="system" width="32" height="32"/>
-        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="32" height="32"/>
-        <image name="lock" catalog="system" width="32" height="32"/>
-        <image name="lock.circle.fill" catalog="system" width="32" height="32"/>
-        <image name="lock.fill" catalog="system" width="32" height="32"/>
-        <image name="message" catalog="system" width="32" height="32"/>
-        <image name="message.fill" catalog="system" width="32" height="32"/>
-        <image name="person.3" catalog="system" width="32" height="32"/>
-        <image name="person.3.fill" catalog="system" width="32" height="32"/>
-        <image name="person.fill" catalog="system" width="32" height="32"/>
+        <image name="at.circle" catalog="system" width="128" height="121"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="hands.clap" catalog="system" width="128" height="117"/>
+        <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
+        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="lock.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="lock.fill" catalog="system" width="128" height="128"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle" width="343" height="56"/>
         <image name="socialize-logo" width="180" height="180"/>
         <systemColor name="systemBackgroundColor">
