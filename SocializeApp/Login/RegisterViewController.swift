@@ -30,12 +30,10 @@ class RegisterViewController: UIViewController {
     @IBAction func tapRegisterButton(_ sender: UIButton) {
         user.email = emailTextField.text
         user.name = nameTextField.text
-        user.password = passwordTextField.text
         user.nationality = nationalityTextField.text
-        let confirmPassword = confirmPasswordTextField.text!
         
         // 패스워드와 패스워드 확인 문자열 비교
-        guard user.password == confirmPassword else {
+        guard passwordTextField.text! == confirmPasswordTextField.text! else {
             let alert = UIAlertController(title: "Error", message: "Password and confirmation password are not the same.", preferredStyle: UIAlertController.Style.alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(alertAction)
@@ -60,6 +58,7 @@ class RegisterViewController: UIViewController {
         if segue.identifier == "registerNextSegue" {
             if let vc = segue.destination as? ChoosingLanguageViewController {
                 vc.user = self.user
+                vc.password = self.passwordTextField.text!
             }
         }
     }
@@ -126,12 +125,15 @@ extension RegisterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Countries.countryList.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Countries.countryList[row]
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.nationalityTextField.text = Countries.countryList[row]
         self.nationalityTextField.sendActions(for: .editingChanged)
