@@ -108,6 +108,7 @@ extension SettingsViewController: UITableViewDelegate {
                     print ("Error signing out: %@", signOutError)
                 }
                 
+                TabBarController.users = [User]()
                 self.dismiss(animated: true)
             }))
 

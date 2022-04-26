@@ -8,6 +8,7 @@
 import Foundation
 
 class Countries {
-    static let languageList = Locale.isoLanguageCodes.compactMap { Locale.current.localizedString(forLanguageCode: $0) }
+    static let languageList = ["English", "Korean", "Chinese(Mandarin)", "Chinese(Cantonese)", "Japanese", "Spanish", "French", "Portuguese", "German", "Italian", "Russian", "Arabic"]
     static let countryList = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
+    
 }

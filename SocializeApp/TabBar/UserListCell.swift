@@ -14,6 +14,9 @@ class UserListCell: UITableViewCell {
     
     @IBOutlet weak var countryLabel: UILabel!
     
+    @IBOutlet weak var teachingLabel: UILabel!
+    
+    @IBOutlet weak var learningLabel: UILabel!
     
     
     override func awakeFromNib() {
