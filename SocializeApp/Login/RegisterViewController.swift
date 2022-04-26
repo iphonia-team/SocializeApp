@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import CountryPickerView
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -15,22 +16,25 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var nationalityTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var countryPicker: UITextField!
     
     private var keyboardIsOpened = false
-    private let pickerView = UIPickerView()
+    //private let pickerView = UIPickerView()
     var user = User()
-    
+    var nationalityCode: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerButton.isEnabled = false
         self.configureInputField()
         self.configurePickerView()
+        self.configureCountryPickerView()
     }
     
     @IBAction func tapRegisterButton(_ sender: UIButton) {
         user.email = emailTextField.text
         user.name = nameTextField.text
         user.nationality = nationalityTextField.text
+        user.nationalityCode = self.nationalityCode// 추가부분
         
         // 패스워드와 패스워드 확인 문자열 비교
         guard passwordTextField.text! == confirmPasswordTextField.text! else {
@@ -71,9 +75,19 @@ class RegisterViewController: UIViewController {
     }
     
     private func configurePickerView() {
-        self.pickerView.delegate = self
+        //self.pickerView.delegate = self
         self.nationalityTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
-        self.nationalityTextField.inputView = self.pickerView
+        //self.nationalityTextField.inputView = self.pickerView
+    }
+    //추가부분
+    private func configureCountryPickerView() {
+        let cpv = CountryPickerView(frame: CGRect(x: 0, y: 0, width: 32, height: 34))
+        cpv.delegate = self
+        self.countryPicker.leftView = cpv
+        cpv.showPhoneCodeInView = false
+        cpv.showCountryNameInView = false
+        cpv.showPhoneCodeInView = false
+        self.countryPicker.leftViewMode = .always
     }
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
@@ -139,4 +153,11 @@ extension RegisterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         self.nationalityTextField.sendActions(for: .editingChanged)
     }
     
+}
+// 추가 부분
+extension RegisterViewController: CountryPickerViewDelegate {
+    func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
+        self.nationalityCode = country.code
+        self.nationalityTextField.text = country.name
+    }
 }

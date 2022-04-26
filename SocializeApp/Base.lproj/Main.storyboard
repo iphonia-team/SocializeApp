@@ -281,12 +281,25 @@
                                             <constraint firstAttribute="width" secondItem="ne3-cI-xv1" secondAttribute="height" id="0fy-y8-fB6"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Nationality" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ye-ol-B76">
-                                        <rect key="frame" x="49" y="0.0" width="245" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Nationality" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ye-ol-B76">
+                                        <rect key="frame" x="49" y="0.0" width="160" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eaX-6h-Imx">
+                                        <rect key="frame" x="224" y="0.0" width="70" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="HoY-M2-DUg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eaX-6h-Imx" secondAttribute="trailing" id="RYz-Ff-1tj"/>
+                                    <constraint firstAttribute="bottom" secondItem="eaX-6h-Imx" secondAttribute="bottom" id="XWa-hg-gDY"/>
+                                    <constraint firstItem="eaX-6h-Imx" firstAttribute="top" secondItem="a8N-Pg-NLt" secondAttribute="top" id="cCh-lM-bBM"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuE-sZ-fGr">
                                 <rect key="frame" x="110" y="711" width="194" height="31"/>
@@ -343,6 +356,7 @@
                     <navigationItem key="navigationItem" id="w69-YK-VkN"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="xcZ-YX-THl" id="60e-lA-PdU"/>
+                        <outlet property="countryPicker" destination="eaX-6h-Imx" id="TQD-wJ-32r"/>
                         <outlet property="emailTextField" destination="SF1-E3-nRn" id="YIt-QD-TfL"/>
                         <outlet property="nameTextField" destination="CGl-cd-dsl" id="a2a-4Y-eoN"/>
                         <outlet property="nationalityTextField" destination="6Ye-ol-B76" id="rwd-5N-O2d"/>

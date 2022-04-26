@@ -30,6 +30,7 @@
 		49BD8A042804434500C10A8E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 49BD8A032804434500C10A8E /* FirebaseStorage */; };
 		6E4A92A528047989008271F9 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A92A428047989008271F9 /* UserListViewController.swift */; };
 		6E4A92A728047EEB008271F9 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A92A628047EEB008271F9 /* UserListCell.swift */; };
+		6E93AA292817DE5200BA575D /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 6E93AA282817DE5200BA575D /* CountryPickerView */; };
 		6EE0F9492801C5CF00F20CEA /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F9482801C5CF00F20CEA /* ChatListViewController.swift */; };
 		6EE0F94B2801C8C900F20CEA /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F94A2801C8C900F20CEA /* ChatCell.swift */; };
 		6EE0F94D2801CE7D00F20CEA /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0F94C2801CE7D00F20CEA /* ChatRoomViewController.swift */; };
@@ -72,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49BD89FE2804434500C10A8E /* FirebaseAnalytics in Frameworks */,
+				6E93AA292817DE5200BA575D /* CountryPickerView in Frameworks */,
 				49BD8A042804434500C10A8E /* FirebaseStorage in Frameworks */,
 				49BD8A002804434500C10A8E /* FirebaseAuth in Frameworks */,
 				49BD8A022804434500C10A8E /* FirebaseFirestore in Frameworks */,
@@ -166,6 +168,7 @@
 				49BD89FF2804434500C10A8E /* FirebaseAuth */,
 				49BD8A012804434500C10A8E /* FirebaseFirestore */,
 				49BD8A032804434500C10A8E /* FirebaseStorage */,
+				6E93AA282817DE5200BA575D /* CountryPickerView */,
 			);
 			productName = SocializeApp;
 			productReference = 4996F73F27FDA83E0055CC58 /* SocializeApp.app */;
@@ -197,6 +200,7 @@
 			mainGroup = 4996F73627FDA83E0055CC58;
 			packageReferences = (
 				49BD89FC2804434500C10A8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6E93AA272817DE5200BA575D /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 			);
 			productRefGroup = 4996F74027FDA83E0055CC58 /* Products */;
 			projectDirPath = "";
@@ -475,6 +479,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		6E93AA272817DE5200BA575D /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -497,6 +509,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 49BD89FC2804434500C10A8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		6E93AA282817DE5200BA575D /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E93AA272817DE5200BA575D /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

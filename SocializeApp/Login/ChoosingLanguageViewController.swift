@@ -66,6 +66,7 @@ class ChoosingLanguageViewController: UIViewController {
                 "email" : self.user.email!,
                 "name" : self.user.name!,
                 "nationality" : self.user.nationality!,
+                "nationalityCode" : self.user.nationalityCode!,
                 "teachingLanguage" : self.user.teachingLanguage!,
                 "learningLanguage" : self.user.learningLanguage!
             ]) { err in

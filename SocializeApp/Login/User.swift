@@ -15,5 +15,6 @@ struct User: Codable {
     var teachingLanguage: String?
     var learningLanguage: String?
     var nationality: String?
+    var nationalityCode: String?
     var imageUrl: String?
 }
