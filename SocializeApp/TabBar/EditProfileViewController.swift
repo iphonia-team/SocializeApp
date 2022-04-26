@@ -63,6 +63,7 @@ class EditProfileViewController: UIViewController {
                 self.present(alert,animated: true,completion: nil)
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

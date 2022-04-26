@@ -18,6 +18,11 @@ class UserListViewController: UIViewController {
         self.userListTableView.dataSource = self
         self.userListTableView.delegate = self
         
+        DispatchQueue.main.async {
+            TabBarController.loadUsersData()
+        }
+        self.userListTableView.reloadData()
+
     }
 
     private func flag(country:String) -> String {
@@ -44,7 +49,7 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
                 as? UserListCell else { return UITableViewCell() }
         
         cell.userNameLabel.text = TabBarController.users[indexPath.row].name
-        cell.countryLabel.text = "from \(TabBarController.users[indexPath.row].nationality!)"
+        cell.countryLabel.text = "from \(flag(country: TabBarController.users[indexPath.row].nationalityCode!))"
         cell.teachingLabel.text = TabBarController.users[indexPath.row].teachingLanguage
         cell.learningLabel.text = TabBarController.users[indexPath.row].learningLanguage
         

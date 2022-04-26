@@ -15,11 +15,12 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadUsersData()
+        TabBarController.loadUsersData()
     }
     
-    private func loadUsersData() {
-        
+    static func loadUsersData() {
+        TabBarController.users = [User]()
+
         let db = Firestore.firestore()
         
         let userInfo = db.collection("users")
