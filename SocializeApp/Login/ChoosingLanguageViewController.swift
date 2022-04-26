@@ -19,6 +19,7 @@ class ChoosingLanguageViewController: UIViewController {
     let learningPickerView = UIPickerView()
     
     var user = User()
+    var password = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class ChoosingLanguageViewController: UIViewController {
         self.user.teachingLanguage = teachingTextField.text
         
         // Firebase에 User 생성
-        Auth.auth().createUser(withEmail: user.email!, password: user.password!) { authResult, error in
+        Auth.auth().createUser(withEmail: user.email!, password: self.password) { authResult, error in
             if let error = error {
                 let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -56,22 +57,23 @@ class ChoosingLanguageViewController: UIViewController {
             }
             alert.addAction(alertAction)
             self.present(alert,animated: true,completion: nil)
-        }
-        
-        // Firestore에 사용자 정보 저장
-        let db = Firestore.firestore()
-        
-        db.collection("users").document(self.user.email!).setData([
-            "email" : self.user.email!,
-            "name" : self.user.name!,
-            "nationality" : self.user.nationality!,
-            "teachingLanguage" : self.user.teachingLanguage!,
-            "learningLanguage" : self.user.learningLanguage!
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
+            
+            // Firestore에 사용자 정보 저장
+            let db = Firestore.firestore()
+            
+            db.collection("users").document(self.user.email!).setData([
+                "uid" : authResult?.user.uid,
+                "email" : self.user.email!,
+                "name" : self.user.name!,
+                "nationality" : self.user.nationality!,
+                "teachingLanguage" : self.user.teachingLanguage!,
+                "learningLanguage" : self.user.learningLanguage!
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
             }
         }
     }

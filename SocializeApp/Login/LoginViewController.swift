@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
             
             // 에러 처리
             if authResult == nil {
-                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "Error", message: "Invalid Email or Wrong Password", preferredStyle: UIAlertController.Style.alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(alertAction)
                 strongSelf.present(alert,animated: true,completion: nil)
