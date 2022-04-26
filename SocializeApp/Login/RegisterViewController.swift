@@ -83,6 +83,7 @@ class RegisterViewController: UIViewController {
     private func configureCountryPickerView() {
         let cpv = CountryPickerView(frame: CGRect(x: 0, y: 0, width: 32, height: 34))
         cpv.delegate = self
+        cpv.dataSource = self
         self.countryPicker.leftView = cpv
         cpv.showPhoneCodeInView = false
         cpv.showCountryNameInView = false
@@ -117,14 +118,14 @@ class RegisterViewController: UIViewController {
     
     @objc func keyboardWillShow(_ noti: NSNotification) {
         if keyboardIsOpened == false {
-            self.view.frame.origin.y -= 120
+            self.view.frame.origin.y -= 20
             keyboardIsOpened = true
         }
     }
     
     @objc func keyboardWillHide(_ noti: NSNotification) {
         if keyboardIsOpened == true {
-            self.view.frame.origin.y += 120
+            self.view.frame.origin.y += 20
             keyboardIsOpened = false
         }
     }
@@ -155,9 +156,13 @@ extension RegisterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
 }
 // 추가 부분
-extension RegisterViewController: CountryPickerViewDelegate {
+extension RegisterViewController: CountryPickerViewDelegate, CountryPickerViewDataSource {
+    func searchBarPosition(in countryPickerView: CountryPickerView) -> SearchBarPosition {
+        return .hidden
+    }
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
         self.nationalityCode = country.code
         self.nationalityTextField.text = country.name
+        self.nationalityTextField.sendActions(for: .editingChanged)
     }
 }
