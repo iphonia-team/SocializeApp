@@ -17,7 +17,8 @@ class ChatRoomViewController: UIViewController {
     
     var uid: String?
     var chatRoomUid: String?
-    var comments: [Comment]?
+    var comments: [Comment] = []
+    var userModel: User
     
     
     var destinationUid: String?
@@ -25,6 +26,8 @@ class ChatRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
         checkChatRoom()
@@ -84,6 +87,18 @@ class ChatRoomViewController: UIViewController {
         }
     }
     
+    func getDestinationInfo() {
+        database.collection("users")
+            .whereField("uid", isEqualTo: self.destinationUid!)
+            .getDocuments { snapshot, err in
+                if let err = err {
+                    print("Error writing document: \(err.localizedDescription)")
+                } else {
+                    
+                }
+        }
+    }
+    
     func getMessageList() {
         print("@@!!getMessageList")
         database.collection("chatRooms").addSnapshotListener{ snapshot, error in
@@ -93,48 +108,36 @@ class ChatRoomViewController: UIViewController {
                 print("Error writing document: \(err.localizedDescription)")
             } else {
                 guard let documents = snapshot?.documents else { return }
-                let decoder = JSONDecoder()
                 for doc in documents {
-                    do {
-                        if (doc.documentID == self.chatRoomUid) {
-                            guard let data = doc.data()["comments"] as? [[String: Any]] else { print("not Convert!!!"); return }
-                            print("doc.data()[comments]: \(data)")
-                            let count = doc.data().count
-                            print(count)
+                    if (doc.documentID == self.chatRoomUid) {
+                        guard let data = doc.data()["comments"] as? [[String: Any]] else { print("not Convert!!!"); return }
+                        print("doc.data()[comments]: \(data)")
+                        let count = doc.data().count
+                        print(count)
 
-                            for index in data {
-                                let uid = index["uid"] as! String
-                                let message = index["message"] as! String
-                                let date = index["date"] as! String
-                                self.comments?.append(Comment(uid: uid, message: message, date: date))
-                            }
-                            print("@@@@@self.comments: \(self.comments)")
+                        for index in data {
+                            let uid = index["uid"] as! String
+                            let message = index["message"] as! String
+                            let date = index["date"] as! String
+                            self.comments.append(Comment(uid: uid, message: message, date: date))
                         }
-
-                    } catch let err {
-                        print("##err: \(err.localizedDescription)")
+                        print("@@@@@self.comments: \(self.comments)")
                     }
-                    
-//                    if (doc.documentID == self.chatRoomUid) {
-//                        print("doc.data()['users']: \(doc.data()["users"])")
-//                        print("doc.data()['comments']: \(doc.data()["message"])")
-//                        let dic = doc.data() as? [String: Any]
-//                        print("doc.data() as? [String: Any]\(doc.data() as? [String:Any])")
-//                        if let messageModel = doc.data()["comments"] as? [String: Any] {
-//                            print("@@messageModel: \(messageModel)")
-//                            for item in messageModel {
-//                                print("@@item: \(item)")
-//                                if let uid = item.uid as? String,
-//                                    let message = item.message as? String,
-//                                   let date = item.date as? String {
-//                                    self.comments?.append(Comment(uid: uid, message: message, date: date))
-//                                }
-//                            }
-//                        }
-//                    }
                 }
             }
         }
+    }
+    
+}
+
+extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+        cell
     }
     
 }
