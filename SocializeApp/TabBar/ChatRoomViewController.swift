@@ -18,7 +18,7 @@ class ChatRoomViewController: UIViewController {
     var uid: String?
     var chatRoomUid: String?
     var comments: [Comment] = []
-    var userModel: User
+    var userModel: User?
     
     
     var destinationUid: String?
@@ -26,8 +26,8 @@ class ChatRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        //self.tableView.delegate = self
+        //self.tableView.dataSource = self
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
         checkChatRoom()
@@ -81,21 +81,40 @@ class ChatRoomViewController: UIViewController {
                     self.chatRoomUid = item.documentID
                     self.sendButton.isEnabled = true
                     print(self.chatRoomUid!)
-                    self.getMessageList()
+                    self.getDestinationInfo()
                 }
             }
         }
     }
     
     func getDestinationInfo() {
+        print("getDestinationInfo()")
         database.collection("users")
             .whereField("uid", isEqualTo: self.destinationUid!)
             .getDocuments { snapshot, err in
                 if let err = err {
                     print("Error writing document: \(err.localizedDescription)")
                 } else {
-                    
+                    self.userModel = User()
+                    if let documents = snapshot?.documents {
+                        for document in documents {
+                            do {
+                                let data = document.data()
+                                let jsonData = try JSONSerialization.data(withJSONObject: data)
+                                
+                                let decoder = JSONDecoder()
+                                let profile = try decoder.decode(User.self, from: jsonData)
+                                
+                                self.userModel = profile
+                                print("@@@self.userModel : \(self.userModel)")
+                                self.getMessageList()
+                                
+                            } catch {
+                                print(error)
+                            }
+                    }
                 }
+            }
         }
     }
     
@@ -130,14 +149,14 @@ class ChatRoomViewController: UIViewController {
     
 }
 
-extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.comments.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
-        cell
-    }
-    
-}
+//extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        self.comments.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+//        //cell
+//    }
+//    
+//}
