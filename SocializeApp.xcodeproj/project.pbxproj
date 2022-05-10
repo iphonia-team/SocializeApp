@@ -17,6 +17,9 @@
 		494DB57A2800567600A1AE31 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DB5792800567600A1AE31 /* RegisterViewController.swift */; };
 		494DB57C280059F500A1AE31 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */; };
 		495BD3F2280152E30022CC11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495BD3F1280152E30022CC11 /* GoogleService-Info.plist */; };
+		496BE1782829024000E5C052 /* CommunityContentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BE1772829024000E5C052 /* CommunityContentsCell.swift */; };
+		496BE17A2829282000E5C052 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BE1792829282000E5C052 /* CreatePostViewController.swift */; };
+		496BE17C282A266A00E5C052 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BE17B282A266900E5C052 /* Post.swift */; };
 		4996F74327FDA83E0055CC58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F74227FDA83E0055CC58 /* AppDelegate.swift */; };
 		4996F74527FDA83E0055CC58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F74427FDA83E0055CC58 /* SceneDelegate.swift */; };
 		4996F74727FDA83E0055CC58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F74627FDA83E0055CC58 /* ViewController.swift */; };
@@ -49,6 +52,9 @@
 		494DB5792800567600A1AE31 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		494DB57B280059F500A1AE31 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		495BD3F1280152E30022CC11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		496BE1772829024000E5C052 /* CommunityContentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentsCell.swift; sourceTree = "<group>"; };
+		496BE1792829282000E5C052 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		496BE17B282A266900E5C052 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4996F73F27FDA83E0055CC58 /* SocializeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocializeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4996F74227FDA83E0055CC58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4996F74427FDA83E0055CC58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +149,9 @@
 				491BCA612812ACCA00C21E0D /* SettingsViewController.swift */,
 				491BCA652814558D00C21E0D /* EditProfileViewController.swift */,
 				493375012816459A00FDDC76 /* CommunityContentsViewController.swift */,
+				496BE1772829024000E5C052 /* CommunityContentsCell.swift */,
+				496BE1792829282000E5C052 /* CreatePostViewController.swift */,
+				496BE17B282A266900E5C052 /* Post.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -236,17 +245,20 @@
 				4996F75727FECE8B0055CC58 /* LoginViewController.swift in Sources */,
 				494DB57A2800567600A1AE31 /* RegisterViewController.swift in Sources */,
 				6EE0F94B2801C8C900F20CEA /* ChatCell.swift in Sources */,
+				496BE1782829024000E5C052 /* CommunityContentsCell.swift in Sources */,
 				6EE0F94F2801D37F00F20CEA /* TabBarController.swift in Sources */,
 				6EE0F9492801C5CF00F20CEA /* ChatListViewController.swift in Sources */,
 				491BCA662814558D00C21E0D /* EditProfileViewController.swift in Sources */,
 				494DB57C280059F500A1AE31 /* ForgotPasswordViewController.swift in Sources */,
 				4901FE33280441DA007A16ED /* FirebaseStorageManager.swift in Sources */,
+				496BE17C282A266A00E5C052 /* Post.swift in Sources */,
 				4913D9E42803C5650089C3F2 /* Countries.swift in Sources */,
 				4996F74727FDA83E0055CC58 /* ViewController.swift in Sources */,
 				4996F74327FDA83E0055CC58 /* AppDelegate.swift in Sources */,
 				4913D9E22803BCF60089C3F2 /* User.swift in Sources */,
 				4996F74527FDA83E0055CC58 /* SceneDelegate.swift in Sources */,
 				6EE0F9512801D8D600F20CEA /* CommunityViewController.swift in Sources */,
+				496BE17A2829282000E5C052 /* CreatePostViewController.swift in Sources */,
 				6E4A92A728047EEB008271F9 /* UserListCell.swift in Sources */,
 				6EE0F94D2801CE7D00F20CEA /* ChatRoomViewController.swift in Sources */,
 				491BCA622812ACCA00C21E0D /* SettingsViewController.swift in Sources */,

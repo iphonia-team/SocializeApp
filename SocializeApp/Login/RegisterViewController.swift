@@ -54,6 +54,11 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        if let emailSuffix = user.email?.components(separatedBy: "@")[1] {
+            user.university = emailSuffix.components(separatedBy: ".")[0]
+        }
+        
+        
         self.performSegue(withIdentifier: "registerNextSegue", sender: nil)
         
     }
