@@ -52,8 +52,8 @@ class ChatRoomViewController: UIViewController {
             let comment = [
                 "uid": uid!,
                 "message": messageTextField.text!,
-                "date": Date().timeIntervalSince1970
-            ] as [String : Any]
+                "date": String(Date().timeIntervalSince1970)
+            ] as [String: Any]
             self.database.collection("chatRooms").document(chatRoomUid!).updateData([
                 "comments":FieldValue.arrayUnion([comment])
             ]) { err in
@@ -101,11 +101,14 @@ class ChatRoomViewController: UIViewController {
                             print("doc.data()[comments]: \(data)")
                             let count = doc.data().count
                             print(count)
-                            let jsonData = try JSONSerialization.data(withJSONObject: data, options: []) as! [String: Any]
-                            print("@@@@@jsondata: \(jsonData)")
-                            let messageModel = try decoder.decode([Comment].self, from: jsonData)
-                            self.comments = messageModel
-                            print("@@@@@self.comments : \(self.comments)")
+
+                            for index in data {
+                                let uid = index["uid"] as! String
+                                let message = index["message"] as! String
+                                let date = index["date"] as! String
+                                self.comments?.append(Comment(uid: uid, message: message, date: date))
+                            }
+                            print("@@@@@self.comments: \(self.comments)")
                         }
 
                     } catch let err {
