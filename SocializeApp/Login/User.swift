@@ -12,6 +12,7 @@ struct User: Codable {
     var uid: String?
     var name: String?
     var email: String?
+    var university: String?
     var teachingLanguage: String?
     var learningLanguage: String?
     var nationality: String?

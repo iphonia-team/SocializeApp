@@ -65,6 +65,7 @@ class ChoosingLanguageViewController: UIViewController {
                 "uid" : authResult?.user.uid,
                 "email" : self.user.email!,
                 "name" : self.user.name!,
+                "university": self.user.university!,
                 "nationality" : self.user.nationality!,
                 "nationalityCode" : self.user.nationalityCode!,
                 "teachingLanguage" : self.user.teachingLanguage!,
