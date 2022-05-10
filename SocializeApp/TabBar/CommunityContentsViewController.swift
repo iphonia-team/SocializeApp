@@ -24,13 +24,6 @@ class CommunityContentsViewController: UIViewController {
         self.contentsTableView.dataSource = self
         self.contentsTableView.delegate = self
         
-        DispatchQueue.main.async {
-            self.loadCommunityData()
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.contentsTableView.reloadData()
-        }
-        
         communityNameLabel.text = communityName
         contentsTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -76,6 +69,8 @@ class CommunityContentsViewController: UIViewController {
     }
     
     private func loadCommunityData() {
+        
+        posts = [Post]()
         
         let db = Firestore.firestore()
         
