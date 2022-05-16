@@ -107,13 +107,14 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
         let chatButton = UIAlertAction(title: "1:1 Chat", style: .default, handler: { [weak self] _ in
             guard let chatRoomViewController = self?.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController else { return }
             chatRoomViewController.destinationUid = self?.users[indexPath.row].uid
+            chatRoomViewController.destinationName = self?.users[indexPath.row].name
             self?.navigationController?.pushViewController(chatRoomViewController, animated: true)
         })
         let deleteButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
 //        deleteButton.setValue(UIColor.red, forKey: "titleTextColor")
         alert.addAction(chatButton)
         alert.addAction(deleteButton)
-        
+        tableView.deselectRow(at: indexPath, animated: true)
         self.present(alert, animated: true, completion: nil)
     }
     

@@ -12,8 +12,9 @@ struct MessageModel: Codable {
 }
 
 struct Users: Codable {
-    var uid: String?
-    var destinationUid: String?
+//    var uid: String?
+//    var destinationUid: String?
+    var users: Dictionary<String,Bool> = [:]
 }
 
 struct Comment: Codable {

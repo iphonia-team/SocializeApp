@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  SocializeApp
 //
-//  Created by 홍성범 on 2022/04/06.
 //
 
 import UIKit
