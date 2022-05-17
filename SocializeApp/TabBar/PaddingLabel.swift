@@ -8,10 +8,10 @@
 import UIKit
 @IBDesignable class PaddingLabel: UILabel {
     
-    @IBInspectable var topPadding: CGFloat = 0.0
-    @IBInspectable var leftPadding: CGFloat = 0.0
-    @IBInspectable var bottomPadding: CGFloat = 0.0
-    @IBInspectable var rightPadding: CGFloat = 0.0
+    @IBInspectable var topPadding: CGFloat = 6.0
+    @IBInspectable var leftPadding: CGFloat = 6.0
+    @IBInspectable var bottomPadding: CGFloat = 6.0
+    @IBInspectable var rightPadding: CGFloat = 6.0
     
     convenience init(padding: UIEdgeInsets) {
         self.init()

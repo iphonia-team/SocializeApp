@@ -155,11 +155,11 @@ class ChatRoomViewController: UIViewController {
                             guard let message = index["message"] as? String else { return }
                             guard let date = index["date"] as? String else { return }
                             self.comments.append(Comment(uid: uid, message: message, date: date))
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
                         }
-                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            self.tableView.scrollToRow(at: IndexPath(row: self.comments.count-1, section: 0), at: .top, animated: false)
+                        }
                         print("@@@@@self.comments: \(self.comments[0])")
                     }
                 }
