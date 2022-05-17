@@ -9,6 +9,7 @@ import Foundation
 
 struct Post: Codable {
     var author: String?
+    var email: String?
     var postTime: String?
     var title: String?
     var content: String?

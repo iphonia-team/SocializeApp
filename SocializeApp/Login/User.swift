@@ -19,3 +19,7 @@ struct User: Codable {
     var nationalityCode: String?
     var imageUrl: String?
 }
+
+struct LikeUser: Codable {
+    var email: String
+}

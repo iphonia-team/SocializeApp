@@ -98,16 +98,6 @@ class CommunityContentsViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -130,8 +120,13 @@ extension CommunityContentsViewController: UITableViewDelegate, UITableViewDataS
         
         return cell
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let communityContentsDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommunityContentsDetailViewController") as? CommunityContentsDetailViewController else { return }
+        communityContentsDetailViewController.contentEmail = posts[indexPath.row].email!
+        communityContentsDetailViewController.contentTime = posts[indexPath.row].postTime!
+        communityContentsDetailViewController.communityName = self.communityName.lowercased()
+        
+        self.navigationController?.pushViewController(communityContentsDetailViewController, animated: true)
+    }
     
 }

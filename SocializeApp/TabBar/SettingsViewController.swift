@@ -136,7 +136,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
         if let img = info[UIImagePickerController.InfoKey.originalImage] {
             profileImageView.image = img as? UIImage
             guard let selectedImage = img as? UIImage else { return }
-            FirebaseStorageManager.uploadImage(image: selectedImage, pathRoot: user.email!) { url in
+            FirebaseStorageManager.uploadImage(image: selectedImage, pathRoot: self.user.email!) { url in
                 if let url = url {
                     
                     let db = Firestore.firestore()

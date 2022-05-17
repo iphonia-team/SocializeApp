@@ -26,8 +26,11 @@
 		4996F74C27FDA83E0055CC58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4996F74B27FDA83E0055CC58 /* Assets.xcassets */; };
 		4996F74F27FDA83E0055CC58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4996F74D27FDA83E0055CC58 /* LaunchScreen.storyboard */; };
 		4996F75727FECE8B0055CC58 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996F75627FECE8B0055CC58 /* LoginViewController.swift */; };
+		49A921342832261300A43277 /* CommunityContentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A921332832261300A43277 /* CommunityContentsDetailViewController.swift */; };
+		49A921362832427200A43277 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A921352832427200A43277 /* CommentCell.swift */; };
 		49B1BA09282A92CD0095FD3A /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BE1792829282000E5C052 /* CreatePostViewController.swift */; };
 		49B1BA0A282A92D20095FD3A /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6C78F282843FD00D47A24 /* Comments.swift */; };
+		49B8E3C8283261CD006EE5B2 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B8E3C7283261CD006EE5B2 /* PostComment.swift */; };
 		49BD89FE2804434500C10A8E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 49BD89FD2804434500C10A8E /* FirebaseAnalytics */; };
 		49BD8A002804434500C10A8E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 49BD89FF2804434500C10A8E /* FirebaseAuth */; };
 		49BD8A022804434500C10A8E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 49BD8A012804434500C10A8E /* FirebaseFirestore */; };
@@ -70,6 +73,9 @@
 		4996F74E27FDA83E0055CC58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4996F75027FDA83E0055CC58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4996F75627FECE8B0055CC58 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		49A921332832261300A43277 /* CommunityContentsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentsDetailViewController.swift; sourceTree = "<group>"; };
+		49A921352832427200A43277 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		49B8E3C7283261CD006EE5B2 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		6E4A92A428047989008271F9 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		6E4A92A628047EEB008271F9 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		6ED6C78F282843FD00D47A24 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
@@ -170,6 +176,9 @@
 				6ED6C797282AA8EC00D47A24 /* TabBarController.swift */,
 				6EE4671228328296002A7554 /* ChatViewController.swift */,
 				6EE467142832897D002A7554 /* PaddingLabel.swift */,
+				49A921332832261300A43277 /* CommunityContentsDetailViewController.swift */,
+				49A921352832427200A43277 /* CommentCell.swift */,
+				49B8E3C7283261CD006EE5B2 /* PostComment.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -271,6 +280,8 @@
 				491BCA662814558D00C21E0D /* EditProfileViewController.swift in Sources */,
 				49B1BA09282A92CD0095FD3A /* CreatePostViewController.swift in Sources */,
 				6ED6C7922829779D00D47A24 /* messageModel.swift in Sources */,
+				49A921342832261300A43277 /* CommunityContentsDetailViewController.swift in Sources */,
+				49A921362832427200A43277 /* CommentCell.swift in Sources */,
 				494DB57C280059F500A1AE31 /* ForgotPasswordViewController.swift in Sources */,
 				6ED6C794282A9CC000D47A24 /* MyMessageCell.swift in Sources */,
 				6ED6C79A282AAD9E00D47A24 /* DestinationCell.swift in Sources */,
@@ -280,6 +291,7 @@
 				6EE467152832897D002A7554 /* PaddingLabel.swift in Sources */,
 				4996F74727FDA83E0055CC58 /* ViewController.swift in Sources */,
 				4996F74327FDA83E0055CC58 /* AppDelegate.swift in Sources */,
+				49B8E3C8283261CD006EE5B2 /* PostComment.swift in Sources */,
 				4913D9E22803BCF60089C3F2 /* User.swift in Sources */,
 				4996F74527FDA83E0055CC58 /* SceneDelegate.swift in Sources */,
 				6EE0F9512801D8D600F20CEA /* CommunityViewController.swift in Sources */,

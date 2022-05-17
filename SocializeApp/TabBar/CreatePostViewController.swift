@@ -37,6 +37,7 @@ class CreatePostViewController: UIViewController {
         
         db.collection("\(collectionName)Room").document("\(current_date_string)-\(CommunityViewController.user.email!)").setData([
             "author" : CommunityViewController.user.name!,
+            "email" : CommunityViewController.user.email!,
             "postTime" : current_date_string,
             "title": self.titleTextField.text!,
             "content": self.contentTextView.text!,
