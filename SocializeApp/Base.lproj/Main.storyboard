@@ -1685,20 +1685,20 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qAp-WT-G49">
-                                <rect key="frame" x="30" y="838" width="354" height="34"/>
+                                <rect key="frame" x="25" y="838" width="364" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8U-PJ-9fj">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8U-PJ-9fj">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="5yp-UK-6ht"/>
-                                            <constraint firstAttribute="width" constant="303" id="BNa-yA-HFx"/>
                                             <constraint firstAttribute="height" constant="34" id="LAT-Wr-k7o"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="kQP-Zv-EKL"/>
+                                            <constraint firstAttribute="width" constant="313" id="pDO-m9-esj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0g-3P-Pma">
-                                        <rect key="frame" x="308" y="0.0" width="46" height="34"/>
+                                        <rect key="frame" x="318" y="0.0" width="46" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system"/>
                                     </button>
@@ -1815,10 +1815,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KAc-4u-ZsL" firstAttribute="top" secondItem="yMu-oO-U90" secondAttribute="top" id="8tw-1b-z5r"/>
+                            <constraint firstItem="u8U-PJ-9fj" firstAttribute="top" secondItem="KAc-4u-ZsL" secondAttribute="bottom" constant="10" id="Cxa-6w-aeJ"/>
                             <constraint firstItem="KAc-4u-ZsL" firstAttribute="leading" secondItem="yMu-oO-U90" secondAttribute="leading" id="IsO-yY-k0H"/>
                             <constraint firstItem="qAp-WT-G49" firstAttribute="top" secondItem="KAc-4u-ZsL" secondAttribute="bottom" constant="10" id="bgL-uR-ABP"/>
-                            <constraint firstItem="qAp-WT-G49" firstAttribute="leading" secondItem="yMu-oO-U90" secondAttribute="leading" constant="30" id="n36-Wd-vpu"/>
-                            <constraint firstItem="yMu-oO-U90" firstAttribute="trailing" secondItem="qAp-WT-G49" secondAttribute="trailing" constant="30" id="uK3-Ec-BvE"/>
+                            <constraint firstItem="qAp-WT-G49" firstAttribute="leading" secondItem="yMu-oO-U90" secondAttribute="leading" constant="25" id="n36-Wd-vpu"/>
+                            <constraint firstItem="yMu-oO-U90" firstAttribute="trailing" secondItem="qAp-WT-G49" secondAttribute="trailing" constant="25" id="uK3-Ec-BvE"/>
                             <constraint firstItem="qAp-WT-G49" firstAttribute="bottom" secondItem="yMu-oO-U90" secondAttribute="bottom" constant="10" id="x4C-Sv-bAq"/>
                             <constraint firstItem="yMu-oO-U90" firstAttribute="trailing" secondItem="KAc-4u-ZsL" secondAttribute="trailing" id="xZH-TP-Blf"/>
                         </constraints>

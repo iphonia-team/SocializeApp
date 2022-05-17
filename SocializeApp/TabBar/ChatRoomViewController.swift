@@ -31,7 +31,7 @@ class ChatRoomViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = destinationName
         uid = Auth.auth().currentUser?.uid
-        checkChatRoom()
+        self.checkChatRoom()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -55,24 +55,35 @@ class ChatRoomViewController: UIViewController {
                     self.checkChatRoom()
                     print("Document successfully written!")
                 }
-                
             }
-        } else {
-            let comment = [
-                "uid": uid!,
-                "message": messageTextField.text!,
-                "date": String(Date().timeIntervalSince1970)
-            ] as [String: Any]
-            self.database.collection("chatRooms").document(chatRoomUid!).updateData([
+        }
+        else {
+            self.sendMessage()
+        }
+    }
+    func sendMessage() {
+        let comment = [
+            "uid": uid!,
+            "message": messageTextField.text!,
+            "date": String(Date().timeIntervalSince1970)
+        ] as [String: Any]
+        if let key = self.chatRoomUid {
+            print("chatRoomUid \(self.chatRoomUid as String?)")
+            self.database.collection("chatRooms").document(key).updateData([
                 "comments":FieldValue.arrayUnion([comment])
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err.localizedDescription)")
                 } else {
+                    DispatchQueue.main.async {
+                        self.messageTextField.text = ""
+                    }
                     print("comments successfully written!")
                 }
             }
         }
+            else {print("!!!No chatRoomUid")}
+        
     }
     func checkChatRoom() {
         print("@@checkChatRoom")
@@ -89,9 +100,9 @@ class ChatRoomViewController: UIViewController {
                     self.sendButton.isEnabled = true
                     print(self.chatRoomUid!)
                 }
-                self.getDestinationInfo()
             }
         }
+        self.getDestinationInfo()
     }
     
     func getDestinationInfo() {
