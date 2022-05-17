@@ -1720,7 +1720,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqB-Jq-QyT" customClass="PaddingLabel" customModule="SocializeApp" customModuleProvider="target">
-                                                    <rect key="frame" x="334" y="11" width="60" height="48"/>
+                                                    <rect key="frame" x="346" y="11" width="48" height="48"/>
                                                     <color key="backgroundColor" red="0.40192973609999999" green="0.62337946889999996" blue="0.94608408209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1770,7 +1770,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fe-r9-Jq3" customClass="PaddingLabel" customModule="SocializeApp" customModuleProvider="target">
-                                                    <rect key="frame" x="70" y="11" width="60" height="48"/>
+                                                    <rect key="frame" x="70" y="11" width="48" height="48"/>
                                                     <color key="backgroundColor" red="0.94901961089999998" green="0.94901973009999996" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -1837,10 +1837,10 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     </scenes>
     <designables>
         <designable name="8Fe-r9-Jq3">
-            <size key="intrinsicContentSize" width="60" height="36"/>
+            <size key="intrinsicContentSize" width="48" height="24"/>
         </designable>
         <designable name="qqB-Jq-QyT">
-            <size key="intrinsicContentSize" width="60" height="36"/>
+            <size key="intrinsicContentSize" width="48" height="24"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

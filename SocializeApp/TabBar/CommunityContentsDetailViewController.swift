@@ -200,14 +200,16 @@ class CommunityContentsDetailViewController: UIViewController {
                 "likeCount" : self.postInfo.likeCount! - 1
             ])
             
-            docRef.collection("likeUsers").document("\(self.user.email!)").setData([
-                "email" : self.user.email!
-            ])
+            docRef.collection("likeUsers").document("\(self.user.email!)").delete()
             
         } else {
             sender.isSelected = true
             docRef.updateData([
                 "likeCount" : self.postInfo.likeCount! + 1
+            ])
+            
+            docRef.collection("likeUsers").document("\(self.user.email!)").setData([
+                "email" : self.user.email!
             ])
         }
         
@@ -244,7 +246,7 @@ class CommunityContentsDetailViewController: UIViewController {
             self.loadContentsData()
             self.loadCommentsData()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.isMyPostOrNot()
             for likeUser in self.likeUsers {
                 if likeUser.email == self.user.email! {
