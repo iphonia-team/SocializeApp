@@ -31,11 +31,12 @@ class ChatRoomViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = destinationName
         uid = Auth.auth().currentUser?.uid
-        self.checkChatRoom()
+        //self.checkChatRoom()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.separatorColor = UIColor.clear
+        self.tableView.keyboardDismissMode = .onDrag
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
     }
     
@@ -52,7 +53,7 @@ class ChatRoomViewController: UIViewController {
                 if let err = err {
                     print("Error writing document: \(err.localizedDescription)")
                 } else {
-                    self.checkChatRoom()
+                    self.checkChatRoom(completion: self.sendMessage)
                     print("Document successfully written!")
                 }
             }
@@ -85,7 +86,7 @@ class ChatRoomViewController: UIViewController {
             else {print("!!!No chatRoomUid")}
         
     }
-    func checkChatRoom() {
+    func checkChatRoom(completion: @escaping () -> Void) {
         print("@@checkChatRoom")
         database.collection("chatRooms")
             .whereField("users.\(self.uid!)", isEqualTo: true)
@@ -101,6 +102,8 @@ class ChatRoomViewController: UIViewController {
                     print(self.chatRoomUid!)
                 }
             }
+            completion()
+                
         }
         self.getDestinationInfo()
     }
@@ -142,7 +145,8 @@ class ChatRoomViewController: UIViewController {
     
     func getMessageList() {
         print("@@!!getMessageList")
-        database.collection("chatRooms").addSnapshotListener{ snapshot, error in
+        database.collection("chatRooms")
+            .addSnapshotListener{ snapshot, error in
             self.comments = []
             debugPrint("----------------------")
             if let err = error {
@@ -217,3 +221,14 @@ extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
     
     
 }
+
+//extension ChatRoomViewController: UITextFieldDelegate {
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}

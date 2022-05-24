@@ -46,13 +46,13 @@ class LoginViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.addKeyboardNotifications()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.removeKeyboardNotifications()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.addKeyboardNotifications()
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        self.removeKeyboardNotifications()
+//    }
     
     private func configureInputField() {
         self.emailTextField.addTarget(self, action: #selector(self.emailTextFieldDidChange(_:)), for: .editingChanged)
