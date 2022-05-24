@@ -31,6 +31,9 @@ class ChatListViewController: UIViewController {
         self.getRoom {
             self.getContents {
                 self.getComments()
+                DispatchQueue.main.async {
+                    self.chatListTableView.reloadData()
+                }
             }
         }
         self.chatListTableView.delegate = self
@@ -42,6 +45,9 @@ class ChatListViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidApper!!!")
+        self.chatListCells = []
+        self.userModel = []
+        self.getChatRoomUid()
         self.getRoom {
             self.getContents {
                 self.getComments()
@@ -75,10 +81,11 @@ class ChatListViewController: UIViewController {
                     }
                     print("@@@ otherUIDs : \(self.otherUIDs)")
                 }
+                
+                completion()
                 DispatchQueue.main.async {
                     self.chatListTableView.reloadData()
                 }
-                completion()
         }
         
         
@@ -131,13 +138,14 @@ class ChatListViewController: UIViewController {
                             
                         } else {print("no same uid!!!!!!!!!!!!!")}
                     }
+                    DispatchQueue.main.async {
+                        self.chatListTableView.reloadData()
+                    }
                 }
             }
             completion()
         }
-        DispatchQueue.main.async {
-            self.chatListTableView.reloadData()
-        }
+        
     }
     
     func getComments() {
@@ -166,31 +174,33 @@ class ChatListViewController: UIViewController {
                                 print(dID)
                                 print(commentsData.last)
                                 
-                                
                                 for model in self.userModel {
                                     if (model.uid == dID) {
                                         let key = doc.documentID
                                         let destinationUid = model.uid
-                                        let imageUrl = model.imageUrl
+                                        let imageUrl = model.imageUrl ?? nil
                                         let name = model.name
                                         let nationalityCode = model.nationalityCode ?? ""
                                         let content = (commentsData.last?["message"] ?? "") as! String
                                         guard var date = (commentsData.last?["date"])! as? String else { return }
                                         date = self.dateFormatter(stringDate: date)
-                                        self.chatListCells.append(ChatListCell(key: key, destinationUid: destinationUid, imageUrl: imageUrl, name: name, nationalityCode: nationalityCode, content: content, date: date))
+                                        var cell = ChatListCell(key: key, destinationUid: destinationUid, imageUrl: imageUrl, name: name, nationalityCode: nationalityCode, content: content, date: date)
+                                        self.chatListCells.append(cell)
+                                        cell = ChatListCell()
+                                        
                                         print(self.chatListCells)
                                     }
-                                    DispatchQueue.main.async {
-                                        self.chatListTableView.reloadData()
-                                    }
+                                    
                                 }
+                                print("chatList22222\(self.chatListCells)\n")
                             }
                         }
                     }
+                    DispatchQueue.main.async {
+                        self.chatListTableView.reloadData()
+                    }
                 }
-                
             }
-        
     }
     
     func dateFormatter(stringDate: String) -> String {
@@ -229,7 +239,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.userImageView.image = UIImage(named: "default-profile-image")
         }
-        
         return cell
     }
     

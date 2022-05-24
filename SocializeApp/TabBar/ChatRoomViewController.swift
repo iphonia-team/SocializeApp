@@ -31,7 +31,7 @@ class ChatRoomViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = destinationName
         uid = Auth.auth().currentUser?.uid
-        //self.checkChatRoom()
+        self.checkChatRoom(completion: self.sendMessage, completion2: self.getDestinationInfo)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -53,7 +53,7 @@ class ChatRoomViewController: UIViewController {
                 if let err = err {
                     print("Error writing document: \(err.localizedDescription)")
                 } else {
-                    self.checkChatRoom(completion: self.sendMessage)
+                    self.checkChatRoom(completion: self.sendMessage, completion2: self.getDestinationInfo)
                     print("Document successfully written!")
                 }
             }
@@ -63,30 +63,32 @@ class ChatRoomViewController: UIViewController {
         }
     }
     func sendMessage() {
-        let comment = [
-            "uid": uid!,
-            "message": messageTextField.text!,
-            "date": String(Date().timeIntervalSince1970)
-        ] as [String: Any]
-        if let key = self.chatRoomUid {
-            print("chatRoomUid \(self.chatRoomUid as String?)")
-            self.database.collection("chatRooms").document(key).updateData([
-                "comments":FieldValue.arrayUnion([comment])
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err.localizedDescription)")
-                } else {
-                    DispatchQueue.main.async {
-                        self.messageTextField.text = ""
+        if (self.messageTextField.text != "") {
+            let comment = [
+                "uid": uid!,
+                "message": messageTextField.text!,
+                "date": String(Date().timeIntervalSince1970)
+            ] as [String: Any]
+            if let key = self.chatRoomUid {
+                print("chatRoomUid \(self.chatRoomUid as String?)")
+                self.database.collection("chatRooms").document(key).updateData([
+                    "comments":FieldValue.arrayUnion([comment])
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err.localizedDescription)")
+                    } else {
+                        DispatchQueue.main.async {
+                            self.messageTextField.text = ""
+                        }
+                        print("comments successfully written!")
                     }
-                    print("comments successfully written!")
                 }
             }
+                else {print("!!!No chatRoomUid")}
         }
-            else {print("!!!No chatRoomUid")}
         
     }
-    func checkChatRoom(completion: @escaping () -> Void) {
+    func checkChatRoom(completion: @escaping () -> Void, completion2: @escaping () -> Void) {
         print("@@checkChatRoom")
         database.collection("chatRooms")
             .whereField("users.\(self.uid!)", isEqualTo: true)
@@ -105,7 +107,8 @@ class ChatRoomViewController: UIViewController {
             completion()
                 
         }
-        self.getDestinationInfo()
+        completion2()
+        //self.getDestinationInfo()
     }
     
     func getDestinationInfo() {
