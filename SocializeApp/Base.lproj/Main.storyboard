@@ -385,7 +385,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I wanna learn..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv6-wV-WPl">
-                                <rect key="frame" x="50" y="337.33333333333331" width="314" height="20.333333333333314"/>
+                                <rect key="frame" x="50" y="317.33333333333331" width="314" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My university is in..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGt-bV-05m">
+                                <rect key="frame" x="50" y="433.66666666666669" width="314" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -411,10 +417,10 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="wHk-dx-LC6">
-                                <rect key="frame" x="50" y="367.66666666666669" width="314" height="56"/>
+                                <rect key="frame" x="50" y="347.66666666666669" width="314" height="56"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-TR-KRh">
-                                <rect key="frame" x="60" y="378.66666666666669" width="294" height="34"/>
+                                <rect key="frame" x="60" y="358.66666666666669" width="294" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hands.clap" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Ib-75-tM7">
                                         <rect key="frame" x="0.0" y="-1.3333333333333321" width="34" height="37"/>
@@ -437,7 +443,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-pm-tI7">
-                                <rect key="frame" x="110" y="523.66666666666663" width="194" height="31"/>
+                                <rect key="frame" x="110" y="605" width="194" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Done!">
                                     <color key="baseBackgroundColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -447,28 +453,57 @@
                                     <action selector="tapRegisterButton:" destination="5VA-sl-2PQ" eventType="touchUpInside" id="jDd-mv-88L"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="QC1-Ja-rtp">
+                                <rect key="frame" x="50" y="464" width="314" height="56"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-Xt-U2s">
+                                <rect key="frame" x="60" y="475" width="294" height="34"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1xS-m9-jEq">
+                                        <rect key="frame" x="0.0" y="0.99999999999999645" width="34" height="32.333333333333329"/>
+                                        <color key="tintColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1xS-m9-jEq" secondAttribute="height" id="V3H-1r-GDz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKD-kN-dJx">
+                                        <rect key="frame" x="49" y="0.0" width="245" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ENY-3F-jfw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ALH-Xt-U2s" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="60" id="1il-DW-TaQ"/>
+                            <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="QC1-Ja-rtp" secondAttribute="trailing" constant="50" id="51K-70-gHY"/>
+                            <constraint firstItem="NGt-bV-05m" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="7Zb-Fc-B1n"/>
                             <constraint firstItem="Qxf-eB-RS4" firstAttribute="top" secondItem="ENY-3F-jfw" secondAttribute="top" constant="10" id="Ar8-He-yuY"/>
                             <constraint firstItem="Oet-cU-aRc" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="D8k-Gb-0rp"/>
+                            <constraint firstItem="NGt-bV-05m" firstAttribute="top" secondItem="wHk-dx-LC6" secondAttribute="bottom" constant="30" id="EQf-L1-nln"/>
+                            <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="NGt-bV-05m" secondAttribute="trailing" constant="50" id="EYf-KS-Pte"/>
+                            <constraint firstItem="QC1-Ja-rtp" firstAttribute="top" secondItem="NGt-bV-05m" secondAttribute="bottom" constant="10" id="Gcz-rS-qKB"/>
                             <constraint firstItem="AKg-i2-qNN" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="60" id="PQ4-hv-Jlk"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="AKg-i2-qNN" secondAttribute="trailing" constant="60" id="R6b-79-SQr"/>
                             <constraint firstItem="2pt-sc-9xd" firstAttribute="top" secondItem="Oet-cU-aRc" secondAttribute="bottom" constant="10" id="SKg-m8-aHz"/>
-                            <constraint firstItem="rv6-wV-WPl" firstAttribute="top" secondItem="2pt-sc-9xd" secondAttribute="bottom" constant="50" id="Tcy-w9-vRS"/>
-                            <constraint firstItem="eSX-pm-tI7" firstAttribute="top" secondItem="wHk-dx-LC6" secondAttribute="bottom" constant="100" id="VjQ-st-9Gp"/>
+                            <constraint firstItem="rv6-wV-WPl" firstAttribute="top" secondItem="2pt-sc-9xd" secondAttribute="bottom" constant="30" id="Tcy-w9-vRS"/>
                             <constraint firstItem="AKg-i2-qNN" firstAttribute="centerY" secondItem="2pt-sc-9xd" secondAttribute="centerY" id="Vzy-Bi-oUY"/>
                             <constraint firstItem="VhP-TR-KRh" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="60" id="WZb-Fe-7Ab"/>
+                            <constraint firstItem="eSX-pm-tI7" firstAttribute="top" secondItem="QC1-Ja-rtp" secondAttribute="bottom" constant="85" id="Xwg-ip-dfT"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="2pt-sc-9xd" secondAttribute="trailing" constant="50" id="Yce-x9-et4"/>
+                            <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="ALH-Xt-U2s" secondAttribute="trailing" constant="60" id="bWa-rn-OTD"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="VhP-TR-KRh" secondAttribute="trailing" constant="60" id="ckv-aY-Bt5"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="Oet-cU-aRc" secondAttribute="trailing" constant="50" id="duI-bz-FRw"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="wHk-dx-LC6" secondAttribute="trailing" constant="50" id="e8C-7c-fuv"/>
                             <constraint firstItem="wHk-dx-LC6" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="eqh-aS-9yp"/>
                             <constraint firstItem="Qxf-eB-RS4" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="30" id="fwc-4h-26G"/>
+                            <constraint firstItem="QC1-Ja-rtp" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="nSH-5T-qQd"/>
                             <constraint firstItem="2pt-sc-9xd" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="nWV-XI-ZJH"/>
                             <constraint firstItem="Oet-cU-aRc" firstAttribute="top" secondItem="Qxf-eB-RS4" secondAttribute="bottom" constant="60" id="o0D-zR-9RM"/>
                             <constraint firstItem="rv6-wV-WPl" firstAttribute="leading" secondItem="ENY-3F-jfw" secondAttribute="leading" constant="50" id="oL0-0j-0cQ"/>
+                            <constraint firstItem="ALH-Xt-U2s" firstAttribute="centerY" secondItem="QC1-Ja-rtp" secondAttribute="centerY" id="p4x-1z-Zsc"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="eSX-pm-tI7" secondAttribute="trailing" constant="110" id="r8C-UX-tNf"/>
                             <constraint firstItem="ENY-3F-jfw" firstAttribute="trailing" secondItem="rv6-wV-WPl" secondAttribute="trailing" constant="50" id="raF-Tt-jiS"/>
                             <constraint firstItem="wHk-dx-LC6" firstAttribute="top" secondItem="rv6-wV-WPl" secondAttribute="bottom" constant="10" id="tLr-jj-3P4"/>
@@ -482,6 +517,7 @@
                         <outlet property="doneButton" destination="eSX-pm-tI7" id="39z-xW-J6X"/>
                         <outlet property="learningTextField" destination="FwD-O8-IQs" id="U05-Fi-AOW"/>
                         <outlet property="teachingTextField" destination="eJS-dN-hR1" id="dEV-Ms-UaH"/>
+                        <outlet property="univLocTextField" destination="SKD-kN-dJx" id="CPf-m6-cjM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09r-UV-W6I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1824,7 +1860,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqB-Jq-QyT" customClass="PaddingLabel" customModule="SocializeApp" customModuleProvider="target">
-                                                    <rect key="frame" x="346" y="11" width="48" height="48"/>
+                                                    <rect key="frame" x="334" y="11" width="60" height="48"/>
                                                     <color key="backgroundColor" red="0.40192973609999999" green="0.62337946889999996" blue="0.94608408209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1874,7 +1910,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fe-r9-Jq3" customClass="PaddingLabel" customModule="SocializeApp" customModuleProvider="target">
-                                                    <rect key="frame" x="70" y="11" width="48" height="48"/>
+                                                    <rect key="frame" x="70" y="11" width="60" height="48"/>
                                                     <color key="backgroundColor" red="0.94901961089999998" green="0.94901973009999996" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -1942,10 +1978,10 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     </scenes>
     <designables>
         <designable name="8Fe-r9-Jq3">
-            <size key="intrinsicContentSize" width="48" height="24"/>
+            <size key="intrinsicContentSize" width="60" height="36"/>
         </designable>
         <designable name="qqB-Jq-QyT">
-            <size key="intrinsicContentSize" width="48" height="24"/>
+            <size key="intrinsicContentSize" width="60" height="36"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -1967,6 +2003,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="lock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>

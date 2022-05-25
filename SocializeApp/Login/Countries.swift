@@ -11,4 +11,6 @@ class Countries {
     static let languageList = ["English", "Korean", "Chinese(Mandarin)", "Chinese(Cantonese)", "Japanese", "Spanish", "French", "Portuguese", "German", "Italian", "Russian", "Arabic"]
     static let countryList = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
     
+    static let univLocList = ["Seoul/Incheon/Gyeonggi", "Gangwon", "Daejeon/Chungcheong", "Daegu/Gyeongbuk", "Busan/Ulsan/Gyeongnam", "Gwangju/Jeolla/Jeju"]
+    
 }
