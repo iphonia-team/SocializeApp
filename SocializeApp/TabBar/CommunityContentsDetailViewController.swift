@@ -42,6 +42,47 @@ class CommunityContentsDetailViewController: UIViewController {
         self.sendButton.isEnabled = false
         self.configureInputField()
         self.loadMyInfo()
+        self.setPullDownButton()
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func setPullDownButton() {
+        let editPost = UIAction(title: "Edit Post", image: UIImage(systemName: "pencil"), handler: { _ in
+            guard let editPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "EditPostViewController")
+                    as? EditPostViewController else { return }
+            
+            editPostViewController.titleString = self.titleLabel.text!
+            editPostViewController.contentString = self.contentsLabel.text!
+            editPostViewController.timeString = self.timeLabel.text!
+            editPostViewController.emailString = self.postInfo.email!
+            editPostViewController.communityName = self.communityName
+            self.navigationController?.pushViewController(editPostViewController, animated: true)
+        })
+        
+        let deletePost = UIAction(title: "Delete Post", image: UIImage(systemName: "delete.left"), handler: { _ in
+            let refreshAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
+
+            refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                self.db.collection("\(self.communityName)Room").document("\(self.contentTime)-\(self.contentEmail)").delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }))
+
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default))
+
+            self.present(refreshAlert, animated: true, completion: nil)
+        })
+        self.moreButton.menu = UIMenu(identifier: nil,
+                                      options: .displayInline,
+                                      children: [editPost, deletePost])
     }
     
     private func isMyPostOrNot() {
@@ -226,7 +267,8 @@ class CommunityContentsDetailViewController: UIViewController {
         docRef.collection("comments").document("\(current_date_string)-\(self.user.email!)").setData([
             "name" : self.user.name!,
             "content" : self.commentTextField.text!,
-            "date" : current_date_string
+            "date" : current_date_string,
+            "email" : self.user.email!
         ])
         
         docRef.updateData([
@@ -246,7 +288,7 @@ class CommunityContentsDetailViewController: UIViewController {
             self.loadContentsData()
             self.loadCommentsData()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.isMyPostOrNot()
             for likeUser in self.likeUsers {
                 if likeUser.email == self.user.email! {
@@ -319,7 +361,48 @@ extension CommunityContentsDetailViewController: UITableViewDelegate, UITableVie
         cell.nameLabel.text = self.postComments[indexPath.row].name
         cell.timeLabel.text = self.postComments[indexPath.row].date
         cell.contentLabel.text = self.postComments[indexPath.row].content
-        
+        cell.email = self.postComments[indexPath.row].email!
+        cell.communityName = self.communityName
+        cell.delegate = self
+        cell.index = indexPath.row
+        if self.postComments[indexPath.row].email! != currentUser?.email {
+            cell.moreButton.isHidden = true
+        }
         return cell
     }
+}
+
+extension CommunityContentsDetailViewController: CommentCellDelegate {
+    func tapMoreButton(index: Int) {
+        let refreshAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
+        
+        let docRef = db.collection("\(self.communityName)Room").document("\(self.contentTime)-\(contentEmail)")
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            
+            docRef.updateData([
+                "commentCount" : self.postInfo.commentCount! - 1
+            ])
+            
+            docRef.collection("comments").document("\(self.postComments[index].date!)-\(self.postComments[index].email!)").delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    DispatchQueue.main.async {
+                        self.loadCommentsData()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.commentsTableView.reloadData()
+                    }
+                    
+                }
+            }
+        }))
+
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default))
+
+        self.present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    
 }

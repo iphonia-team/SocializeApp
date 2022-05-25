@@ -11,4 +11,5 @@ struct PostComment: Codable {
     var name: String?
     var content: String?
     var date: String?
+    var email: String?
 }

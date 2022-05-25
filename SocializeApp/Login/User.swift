@@ -18,6 +18,7 @@ struct User: Codable {
     var nationality: String?
     var nationalityCode: String?
     var imageUrl: String?
+    var univLocation: String?
 }
 
 struct LikeUser: Codable {

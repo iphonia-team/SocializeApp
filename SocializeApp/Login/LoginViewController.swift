@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             if keyboardIsOpened == false {
-                self.view.frame.origin.y -= keyboardHeight
+                self.view.frame.origin.y -= 100
                 keyboardIsOpened = true
             }
         }
@@ -97,7 +97,7 @@ class LoginViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             if keyboardIsOpened == true {
-                self.view.frame.origin.y += keyboardHeight
+                self.view.frame.origin.y += 100
                 keyboardIsOpened = false
             }
         }
