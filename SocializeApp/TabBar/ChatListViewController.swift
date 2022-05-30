@@ -30,7 +30,9 @@ class ChatListViewController: UIViewController {
         self.uid = Auth.auth().currentUser?.uid
         self.getRoom {
             self.getContents {
-                self.getComments()
+                self.getComments{
+                    self.sortTableView()
+                }
             }
         }
         self.chatListTableView.delegate = self
@@ -47,7 +49,9 @@ class ChatListViewController: UIViewController {
         self.getChatRoomUid()
         self.getRoom {
             self.getContents {
-                self.getComments()
+                self.getComments {
+                    self.sortTableView()
+                }
             }
         }
     }
@@ -145,7 +149,7 @@ class ChatListViewController: UIViewController {
         
     }
     
-    func getComments() {
+    func getComments(completion: @escaping () -> Void) {
         print("@@@getComments")
         database.collection("chatRooms")
             .whereField("users.\(self.uid!)", isEqualTo: true)
@@ -180,8 +184,9 @@ class ChatListViewController: UIViewController {
                                         let nationalityCode = model.nationalityCode ?? ""
                                         let content = (commentsData.last?["message"] ?? "") as! String
                                         guard var date = (commentsData.last?["date"])! as? String else { return }
+                                        let numDate = date
                                         date = self.dateFormatter(stringDate: date)
-                                        var cell = ChatListCell(key: key, destinationUid: destinationUid, imageUrl: imageUrl, name: name, nationalityCode: nationalityCode, content: content, date: date)
+                                        var cell = ChatListCell(key: key, destinationUid: destinationUid, imageUrl: imageUrl, name: name, nationalityCode: nationalityCode, content: content, numDate: numDate, date: date)
                                         self.chatListCells.append(cell)
                                         cell = ChatListCell()
                                         
@@ -197,16 +202,25 @@ class ChatListViewController: UIViewController {
                         self.chatListTableView.reloadData()
                     }
                 }
+                completion()
             }
     }
     func sortTableView() {
-        
+        self.chatListCells.sort(by: { $0.numDate! > $1.numDate! })
+        DispatchQueue.main.async {
+            self.chatListTableView.reloadData()
+        }
     }
     
     
     func dateFormatter(stringDate: String) -> String {
         let unixTime = Double(stringDate) ?? 0.0
-        let date = Date(timeIntervalSince1970: unixTime).formatted(date: .omitted, time: .shortened)
+        let myTime = Date(timeIntervalSince1970: unixTime)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a, MM/dd"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        let date = dateFormatter.string(from: myTime)
         return date
     }
     

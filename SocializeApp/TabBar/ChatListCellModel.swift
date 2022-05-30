@@ -14,5 +14,6 @@ struct ChatListCell {
     var name: String?
     var nationalityCode: String?
     var content: String?
+    var numDate: String?
     var date: String?
 }

@@ -1467,9 +1467,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:11 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTt-Wc-tcF">
-                                                    <rect key="frame" x="351.33333333333331" y="5" width="47.666666666666686" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:11 PM" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTt-Wc-tcF">
+                                                    <rect key="frame" x="281" y="4.9999999999999991" width="118" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1481,6 +1481,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                 <constraint firstItem="bhY-kH-I60" firstAttribute="top" secondItem="lhv-nt-fnb" secondAttribute="top" constant="5" id="doq-xC-MRT"/>
                                                 <constraint firstAttribute="bottom" secondItem="bhY-kH-I60" secondAttribute="bottom" constant="5" id="hXG-5u-wBs"/>
                                                 <constraint firstItem="YmU-QP-Acf" firstAttribute="leading" secondItem="bhY-kH-I60" secondAttribute="trailing" constant="5" id="i6G-YY-5NQ"/>
+                                                <constraint firstItem="nTt-Wc-tcF" firstAttribute="leading" secondItem="YmU-QP-Acf" secondAttribute="trailing" constant="5" id="jKz-vD-akL"/>
                                                 <constraint firstItem="ei7-Pu-M1g" firstAttribute="top" secondItem="YmU-QP-Acf" secondAttribute="bottom" constant="5" id="lvk-KI-iIt"/>
                                                 <constraint firstItem="bhY-kH-I60" firstAttribute="leading" secondItem="lhv-nt-fnb" secondAttribute="leading" constant="15" id="m9c-pl-94P"/>
                                                 <constraint firstItem="YmU-QP-Acf" firstAttribute="top" secondItem="lhv-nt-fnb" secondAttribute="top" constant="5" id="pYo-qK-Tco"/>
