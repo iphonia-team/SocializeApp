@@ -31,9 +31,6 @@ class ChatListViewController: UIViewController {
         self.getRoom {
             self.getContents {
                 self.getComments()
-                DispatchQueue.main.async {
-                    self.chatListTableView.reloadData()
-                }
             }
         }
         self.chatListTableView.delegate = self
@@ -202,6 +199,10 @@ class ChatListViewController: UIViewController {
                 }
             }
     }
+    func sortTableView() {
+        
+    }
+    
     
     func dateFormatter(stringDate: String) -> String {
         let unixTime = Double(stringDate) ?? 0.0
@@ -234,8 +235,11 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.chatDateLabel.text = self.chatListCells[indexPath.row].date
         if let profileImage = self.chatListCells[indexPath.row].imageUrl {
             FirebaseStorageManager.downloadImage(urlString: profileImage) { image in
-                cell.userImageView.image = image
+                DispatchQueue.main.async {
+                    cell.userImageView.image = image
+                }
             }
+            
         } else {
             cell.userImageView.image = UIImage(named: "default-profile-image")
         }

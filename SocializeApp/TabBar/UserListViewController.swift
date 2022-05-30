@@ -9,18 +9,29 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class UserListViewController: UIViewController {
+class UserListViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var userListTableView: UITableView!
     
     var users: [User] = []
+    var filteredUsers: [User] = []
+    
     let database = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initSearchBar()
         self.userListTableView.dataSource = self
         self.userListTableView.delegate = self
         self.configureUserList()
+
+    }
+    private func initSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Search Users"
+        searchController.searchResultsUpdater = self
+        
+        self.navigationItem.searchController = searchController
 
     }
 
@@ -75,7 +86,7 @@ class UserListViewController: UIViewController {
 
 extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.users.count
+        return isEditMode ? self.filteredUsers.count : self.users.count
     }
 
 
@@ -84,21 +95,30 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath)
                 as? UserListCell else { return UITableViewCell() }
         
-        cell.userNameLabel.text = self.users[indexPath.row].name
-        cell.countryLabel.text = "from \(flag(country: self.users[indexPath.row].nationalityCode!))"
-        cell.teachingLabel.text = self.users[indexPath.row].teachingLanguage
-        cell.learningLabel.text = self.users[indexPath.row].learningLanguage
+        cell.userNameLabel.text = isEditMode ? self.filteredUsers[indexPath.row].name : self.users[indexPath.row].name
+        cell.countryLabel.text = isEditMode ? "from \(flag(country: self.filteredUsers[indexPath.row].nationalityCode!))" : "from \(flag(country: self.users[indexPath.row].nationalityCode!))"
+        cell.teachingLabel.text = isEditMode ? self.filteredUsers[indexPath.row].teachingLanguage : self.users[indexPath.row].teachingLanguage
+        cell.learningLabel.text = isEditMode ? self.filteredUsers[indexPath.row].learningLanguage : self.users[indexPath.row].learningLanguage
         
         //cell.userListImageView.image = UIImage(named: "ConorMcgregor")
 //
 //        let image = UIImage(named: "ConorMcgregor")
-        
-        if let profileImage = self.users[indexPath.row].imageUrl {
-            FirebaseStorageManager.downloadImage(urlString: profileImage) { image in
-                cell.userListImageView.image = image
+        if (isEditMode) {
+            if let profileImage = self.filteredUsers[indexPath.row].imageUrl {
+                FirebaseStorageManager.downloadImage(urlString: profileImage) { image in
+                    cell.userListImageView.image = image
+                }
+            } else {
+                cell.userListImageView.image = UIImage(named: "default-profile-image")
             }
         } else {
-            cell.userListImageView.image = UIImage(named: "default-profile-image")
+            if let profileImage = self.users[indexPath.row].imageUrl {
+                FirebaseStorageManager.downloadImage(urlString: profileImage) { image in
+                    cell.userListImageView.image = image
+                }
+            } else {
+                cell.userListImageView.image = UIImage(named: "default-profile-image")
+            }
         }
         
         return cell
@@ -118,5 +138,23 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         self.present(alert, animated: true, completion: nil)
     }
+    
+}
+
+extension UserListViewController: UISearchResultsUpdating {
+    var isEditMode: Bool {
+        let searchController = navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+        return isActive && isSearchBarHasText
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text?.lowercased() else { return }
+        self.filteredUsers = self.users.filter{ $0.name!.lowercased().contains(text) || $0.nationality!.lowercased().contains(text) || $0.teachingLanguage!.lowercased().contains(text) }
+        print("#@#@#@#@#@#@\(filteredUsers)")
+        self.userListTableView.reloadData()
+    }
+    
     
 }
