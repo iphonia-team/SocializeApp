@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 
 class ChatListViewController: UIViewController {
-
+    
     @IBOutlet weak var chatListTableView: UITableView!
     let database = Firestore.firestore()
     var uid: String?
@@ -56,7 +56,7 @@ class ChatListViewController: UIViewController {
         }
     }
     
-// https://hcn1519.github.io/articles/2017-09/swift_escaping_closure
+    // https://hcn1519.github.io/articles/2017-09/swift_escaping_closure
     func getRoom(completion: @escaping () -> Void) {
         print("@@ getRoom : ")
         database.collection("chatRooms")
@@ -87,7 +87,7 @@ class ChatListViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.chatListTableView.reloadData()
                 }
-        }
+            }
         
         
     }
@@ -233,8 +233,8 @@ class ChatListViewController: UIViewController {
         return String(s)
     }
 }
-    
-    
+
+
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -266,7 +266,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         chatRoomViewController.destinationName = self.chatListCells[indexPath.row].name
         self.navigationController?.pushViewController(chatRoomViewController, animated: true)
         self.chatListTableView.deselectRow(at: indexPath, animated: true)
-    }    
+    }
     
 }
 

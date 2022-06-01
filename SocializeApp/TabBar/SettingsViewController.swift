@@ -104,6 +104,9 @@ extension SettingsViewController: UITableViewDelegate {
             refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 do {
                     try Auth.auth().signOut()
+                    UserDefaults.standard.removeObject(forKey: "autoOK")
+                    UserDefaults.standard.removeObject(forKey: "ID")
+                    UserDefaults.standard.removeObject(forKey: "Password")
                 } catch let signOutError as NSError {
                     print ("Error signing out: %@", signOutError)
                 }

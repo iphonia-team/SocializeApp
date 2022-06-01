@@ -1,10 +1,3 @@
-//
-//  LoginViewController.swift
-//  SocializeApp
-//
-//  Created by 홍성범 on 2022/04/07.
-//
-
 import UIKit
 import FirebaseAuth
 
@@ -13,13 +6,38 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var switchButton: UISwitch!
     
     var keyboardIsOpened = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkAutoLogin()
         loginButton.isEnabled = false
         configureInputField()
+    }
+    func checkAutoLogin() {
+        let autoOK = UserDefaults.standard.bool(forKey: "autoOK")
+        if (autoOK == true) {
+            let id = UserDefaults.standard.string(forKey: "ID")
+            let password = UserDefaults.standard.string(forKey: "Password")
+            
+            Auth.auth().signIn(withEmail: id!, password: password!) { [weak self] authResult, error in
+                guard let strongSelf = self else { return }
+                if authResult == nil {
+                    let alert = UIAlertController(title: "Error", message: "Invalid Email or Wrong Password", preferredStyle: UIAlertController.Style.alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(alertAction)
+                    strongSelf.present(alert,animated: true,completion: nil)
+                } else {
+                    guard let tabBarController = strongSelf.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+                            as? TabBarController else { return }
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    strongSelf.present(tabBarController, animated: true, completion: nil)
+                }
+
+            }
+        }
     }
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
@@ -37,7 +55,12 @@ class LoginViewController: UIViewController {
             } else {
                 guard let tabBarController = strongSelf.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
                         as? TabBarController else { return }
-                
+                //let autoOK = UserDefaults.standard.bool(forKey: "autoOK")
+                if (strongSelf.switchButton.isOn == true) {
+                    UserDefaults.standard.set(true, forKey: "autoOK")
+                    UserDefaults.standard.set(strongSelf.emailTextField.text, forKey: "ID")
+                    UserDefaults.standard.set(strongSelf.passwordTextField.text, forKey: "Password")
+                }
                 tabBarController.modalPresentationStyle = .fullScreen
                 strongSelf.present(tabBarController, animated: true, completion: nil)
             }
