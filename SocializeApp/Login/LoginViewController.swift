@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
             } else {
                 guard let tabBarController = strongSelf.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
                         as? TabBarController else { return }
-                //let autoOK = UserDefaults.standard.bool(forKey: "autoOK")
+                // 자동로그인 체크가 되있으면 유저디폴트에 정보저장
                 if (strongSelf.switchButton.isOn == true) {
                     UserDefaults.standard.set(true, forKey: "autoOK")
                     UserDefaults.standard.set(strongSelf.emailTextField.text, forKey: "ID")

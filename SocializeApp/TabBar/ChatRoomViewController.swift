@@ -31,6 +31,7 @@ class ChatRoomViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = destinationName
         uid = Auth.auth().currentUser?.uid
+        self.configureTextField()
         self.checkChatRoom(completion: self.sendMessage, completion2: self.getDestinationInfo)
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -38,6 +39,14 @@ class ChatRoomViewController: UIViewController {
         self.tableView.separatorColor = UIColor.clear
         self.tableView.keyboardDismissMode = .onDrag
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
+    }
+    
+    func configureTextField() {
+        self.messageTextField.borderStyle = .roundedRect
+        self.messageTextField.layer.cornerRadius = 8
+        self.messageTextField.layer.masksToBounds = true
+        self.messageTextField.layer.borderWidth = 1.8
+        self.messageTextField.layer.borderColor = UIColor.darkGray.cgColor
     }
     
     @objc func createRoom() {
@@ -225,13 +234,23 @@ extension ChatRoomViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-//extension ChatRoomViewController: UITextFieldDelegate {
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}
+extension UIColor {
+
+    convenience init(hex: String, alpha: CGFloat = 1.0) {
+        var hexFormatted: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+
+        if hexFormatted.hasPrefix("#") {
+            hexFormatted = String(hexFormatted.dropFirst())
+        }
+
+        assert(hexFormatted.count == 6, "Invalid hex code used.")
+
+        var rgbValue: UInt64 = 0
+        Scanner(string: hexFormatted).scanHexInt64(&rgbValue)
+
+        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                  green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                  blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                  alpha: alpha)
+    }
+}

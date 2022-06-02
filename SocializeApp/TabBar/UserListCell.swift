@@ -22,6 +22,8 @@ class UserListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        userListImageView.layer.masksToBounds = true
+        userListImageView.layer.cornerRadius = userListImageView.frame.height/5
         
     }
 //    override func layoutSubviews() {
