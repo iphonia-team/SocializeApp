@@ -30,6 +30,8 @@ class SettingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         imagePickerController.delegate = self
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/5
     }
     
     override func viewWillAppear(_ animated: Bool) {
