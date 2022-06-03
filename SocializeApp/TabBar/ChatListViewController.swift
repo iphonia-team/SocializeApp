@@ -84,9 +84,6 @@ class ChatListViewController: UIViewController {
                 }
                 
                 completion()
-                DispatchQueue.main.async {
-                    self.chatListTableView.reloadData()
-                }
             }
         
         
@@ -106,9 +103,6 @@ class ChatListViewController: UIViewController {
                         self.chatRoomUid.append(item.documentID)
                     }
                     print("@@self.chatRoomUid: \(self.chatRoomUid)")
-                }
-                DispatchQueue.main.async {
-                    self.chatListTableView.reloadData()
                 }
             }
     }
@@ -138,9 +132,6 @@ class ChatListViewController: UIViewController {
                             }
                             
                         } else {print("no same uid!!!!!!!!!!!!!")}
-                    }
-                    DispatchQueue.main.async {
-                        self.chatListTableView.reloadData()
                     }
                 }
             }
@@ -198,18 +189,16 @@ class ChatListViewController: UIViewController {
                             }
                         }
                     }
-                    DispatchQueue.main.async {
-                        self.chatListTableView.reloadData()
-                    }
                 }
                 completion()
             }
     }
     func sortTableView() {
         self.chatListCells.sort(by: { $0.numDate! > $1.numDate! })
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.chatListTableView.reloadData()
         }
+        
     }
     
     
@@ -249,9 +238,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.chatDateLabel.text = self.chatListCells[indexPath.row].date
         if let profileImage = self.chatListCells[indexPath.row].imageUrl {
             FirebaseStorageManager.downloadImage(urlString: profileImage) { image in
-                DispatchQueue.main.async {
-                    cell.userImageView.image = image
-                }
+                cell.userImageView.image = image
             }
             
         } else {
