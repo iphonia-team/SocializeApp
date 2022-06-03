@@ -195,7 +195,7 @@ class ChatListViewController: UIViewController {
     }
     func sortTableView() {
         self.chatListCells.sort(by: { $0.numDate! > $1.numDate! })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
             self.chatListTableView.reloadData()
         }
         
