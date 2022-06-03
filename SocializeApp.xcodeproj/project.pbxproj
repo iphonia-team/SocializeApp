@@ -88,7 +88,7 @@
 		496BE1772829024000E5C052 /* CommunityContentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentsCell.swift; sourceTree = "<group>"; };
 		496BE1792829282000E5C052 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		496BE17B282A266900E5C052 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		4996F73F27FDA83E0055CC58 /* SocializeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocializeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4996F73F27FDA83E0055CC58 /* Socialize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4996F74227FDA83E0055CC58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4996F74427FDA83E0055CC58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4996F74627FDA83E0055CC58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		4996F74027FDA83E0055CC58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4996F73F27FDA83E0055CC58 /* SocializeApp.app */,
+				4996F73F27FDA83E0055CC58 /* Socialize.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				6EB3101728488E4A0003D18A /* FirebaseStorageCombine-Community */,
 			);
 			productName = SocializeApp;
-			productReference = 4996F73F27FDA83E0055CC58 /* SocializeApp.app */;
+			productReference = 4996F73F27FDA83E0055CC58 /* Socialize.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -524,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VS6NMW5G3Y;
+				DEVELOPMENT_TEAM = X726R6A26M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SocializeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -538,7 +538,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.kumoh.s20191255.SocializeApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Socialize;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,7 +552,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VS6NMW5G3Y;
+				DEVELOPMENT_TEAM = X726R6A26M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SocializeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -566,7 +566,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.kumoh.s20191255.SocializeApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Socialize;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
