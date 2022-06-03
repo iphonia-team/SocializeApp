@@ -951,14 +951,14 @@
                                     <constraint firstItem="qsF-Tz-bzl" firstAttribute="width" secondItem="qsF-Tz-bzl" secondAttribute="height" id="Bj7-d3-fID"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-yY-aOQ">
-                                <rect key="frame" x="20" y="113.99999999999999" width="374" height="31.333333333333329"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-yY-aOQ">
+                                <rect key="frame" x="20" y="114" width="374" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7rw-Vv-3GS">
-                                <rect key="frame" x="20" y="510.33333333333326" width="374" height="385.66666666666674"/>
+                                <rect key="frame" x="20" y="505.33333333333326" width="374" height="390.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="115" id="C3S-67-zXc" customClass="CommentCell" customModule="Socialize" customModuleProvider="target">
@@ -1021,7 +1021,7 @@
                                 </prototypes>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02W-db-Bag">
-                                <rect key="frame" x="20" y="165.33333333333337" width="374" height="226"/>
+                                <rect key="frame" x="20" y="160.33333333333337" width="374" height="226"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-lx-SpN">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
@@ -1040,7 +1040,7 @@
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ru8-F0-xiP">
-                                <rect key="frame" x="20" y="456.33333333333331" width="374" height="34"/>
+                                <rect key="frame" x="20" y="451.33333333333331" width="374" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SL3-Kn-jRY">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
@@ -1066,7 +1066,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS1-2J-7QW">
-                                <rect key="frame" x="20" y="411.33333333333331" width="70" height="31"/>
+                                <rect key="frame" x="20" y="406.33333333333331" width="70" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="ISh-dX-BMC"/>
                                 </constraints>
@@ -1077,7 +1077,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="dn3-fk-7Id">
-                                <rect key="frame" x="344" y="411.33333333333331" width="50" height="20"/>
+                                <rect key="frame" x="344" y="406.33333333333331" width="50" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" id="Rfv-Ld-QnQ">
                                         <rect key="frame" x="0.0" y="0.33333333333333215" width="20.333333333333332" height="19.333333333333336"/>
