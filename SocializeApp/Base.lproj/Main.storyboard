@@ -1642,12 +1642,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kumoh National Institute of Technology" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLM-le-rvG">
-                                <rect key="frame" x="10" y="520" width="394" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zQo-6C-Pbc">
                                 <rect key="frame" x="0.0" y="561" width="414" height="252"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1667,13 +1661,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="im7-Wv-iDr" firstAttribute="leading" secondItem="9Vh-q9-lgO" secondAttribute="leading" constant="110" id="5E4-Qt-YVf"/>
-                            <constraint firstItem="nLM-le-rvG" firstAttribute="leading" secondItem="9Vh-q9-lgO" secondAttribute="leading" constant="10" id="5n6-vS-Cc9"/>
                             <constraint firstItem="DUj-UL-nMO" firstAttribute="top" secondItem="9Vh-q9-lgO" secondAttribute="top" constant="60" id="7r8-kB-omH"/>
                             <constraint firstItem="9Vh-q9-lgO" firstAttribute="bottom" secondItem="zQo-6C-Pbc" secondAttribute="bottom" id="85j-uV-3qK"/>
-                            <constraint firstItem="zQo-6C-Pbc" firstAttribute="top" secondItem="nLM-le-rvG" secondAttribute="bottom" constant="20" id="Dyq-vD-rDk"/>
-                            <constraint firstItem="9Vh-q9-lgO" firstAttribute="trailing" secondItem="nLM-le-rvG" secondAttribute="trailing" constant="10" id="EQ9-jB-hyu"/>
                             <constraint firstItem="UN4-a4-XeC" firstAttribute="top" secondItem="im7-Wv-iDr" secondAttribute="bottom" constant="35" id="KI0-Qq-dxg"/>
                             <constraint firstItem="Oen-UQ-pGE" firstAttribute="leading" secondItem="9Vh-q9-lgO" secondAttribute="leading" constant="20" id="Kaj-eD-BAl"/>
+                            <constraint firstItem="zQo-6C-Pbc" firstAttribute="top" secondItem="Oen-UQ-pGE" secondAttribute="bottom" constant="56" id="Lro-gk-AGa"/>
                             <constraint firstItem="Oen-UQ-pGE" firstAttribute="top" secondItem="UN4-a4-XeC" secondAttribute="bottom" constant="15" id="MEx-L3-xHY"/>
                             <constraint firstItem="9Vh-q9-lgO" firstAttribute="trailing" secondItem="Oen-UQ-pGE" secondAttribute="trailing" constant="20" id="OO6-Wk-0ha"/>
                             <constraint firstItem="9Vh-q9-lgO" firstAttribute="trailing" secondItem="im7-Wv-iDr" secondAttribute="trailing" constant="110" id="fLR-Yi-vOF"/>
@@ -1684,7 +1676,6 @@
                             <constraint firstItem="UN4-a4-XeC" firstAttribute="leading" secondItem="9Vh-q9-lgO" secondAttribute="leading" constant="20" id="sxo-R3-9tA"/>
                             <constraint firstItem="DUj-UL-nMO" firstAttribute="leading" secondItem="9Vh-q9-lgO" secondAttribute="leading" constant="15" id="tE0-Nf-XhD"/>
                             <constraint firstItem="zQo-6C-Pbc" firstAttribute="leading" secondItem="9Vh-q9-lgO" secondAttribute="leading" id="tIZ-Kp-sUG"/>
-                            <constraint firstItem="nLM-le-rvG" firstAttribute="top" secondItem="Oen-UQ-pGE" secondAttribute="bottom" constant="15" id="w0g-iE-lOq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="iUc-qK-Jxi"/>
@@ -1693,7 +1684,6 @@
                         <outlet property="nameLabel" destination="UN4-a4-XeC" id="tGz-Q9-3Rs"/>
                         <outlet property="profileImageView" destination="im7-Wv-iDr" id="Pam-qS-qYQ"/>
                         <outlet property="tableView" destination="zQo-6C-Pbc" id="WdR-Ru-Wrh"/>
-                        <outlet property="universityLabel" destination="nLM-le-rvG" id="oFF-Zv-s8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oi7-jz-zBH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
