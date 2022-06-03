@@ -668,82 +668,88 @@
                                 <color key="textColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awQ-Op-dJs">
-                                <rect key="frame" x="30" y="174" width="354" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frr-uz-U1w">
+                                <rect key="frame" x="30" y="344" width="354" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="rd7-NI-VAt"/>
+                                    <constraint firstAttribute="height" constant="130" id="jAg-MO-WFb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" cornerRadius="20">
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Your University">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="24" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="47s-Yv-Vbs" kind="show" identifier="univCommunitySegue" id="zDo-hM-Ein"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frr-uz-U1w">
-                                <rect key="frame" x="30" y="384" width="354" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="jAg-MO-WFb"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" cornerRadius="20">
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Your Country">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="24" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <buttonConfiguration key="configuration" style="plain" title="Your Country">
+                                    <backgroundConfiguration key="background" cornerRadius="20" image="bg2"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="34"/>
+                                    <directionalEdgeInsets key="contentInsets" top="17" leading="17" bottom="0.0" trailing="0.0"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="47s-Yv-Vbs" kind="show" identifier="countryCommunitySegue" id="0rF-G6-Cr0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4U-98-uQD">
+                                <rect key="frame" x="30" y="514" width="354" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="ddQ-xb-FCC"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Around You">
+                                    <backgroundConfiguration key="background" cornerRadius="20" image="bg3"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="34"/>
+                                    <directionalEdgeInsets key="contentInsets" top="17" leading="17" bottom="0.0" trailing="0.0"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="47s-Yv-Vbs" kind="show" identifier="aroundYouCommunitySegue" id="gfz-E3-zMP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awQ-Op-dJs">
+                                <rect key="frame" x="30" y="174" width="354" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="rd7-NI-VAt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="28"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <size key="titleShadowOffset" width="30" height="30"/>
+                                <state key="normal" title="Your University">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" title="Your University">
+                                    <backgroundConfiguration key="background" cornerRadius="20" image="bg1"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="34"/>
+                                    <directionalEdgeInsets key="contentInsets" top="17" leading="17" bottom="0.0" trailing="0.0"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="47s-Yv-Vbs" kind="show" identifier="univCommunitySegue" id="zDo-hM-Ein"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AOl-Jg-MVC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="e4U-98-uQD" firstAttribute="top" secondItem="frr-uz-U1w" secondAttribute="bottom" constant="40" id="1dp-Up-aJ4"/>
+                            <constraint firstItem="frr-uz-U1w" firstAttribute="top" secondItem="awQ-Op-dJs" secondAttribute="bottom" constant="40" id="2pj-x4-IsL"/>
                             <constraint firstItem="Awt-Ip-qut" firstAttribute="leading" secondItem="AOl-Jg-MVC" secondAttribute="leading" constant="15" id="6Uq-Pg-Vjf"/>
+                            <constraint firstItem="awQ-Op-dJs" firstAttribute="top" secondItem="Awt-Ip-qut" secondAttribute="bottom" constant="50" id="7sn-aj-Zdk"/>
+                            <constraint firstItem="e4U-98-uQD" firstAttribute="leading" secondItem="AOl-Jg-MVC" secondAttribute="leading" constant="30" id="AVy-xt-Tz3"/>
                             <constraint firstItem="AOl-Jg-MVC" firstAttribute="trailing" secondItem="frr-uz-U1w" secondAttribute="trailing" constant="30" id="CGZ-qC-tVQ"/>
-                            <constraint firstItem="AOl-Jg-MVC" firstAttribute="trailing" secondItem="awQ-Op-dJs" secondAttribute="trailing" constant="30" id="L3s-O1-rRw"/>
+                            <constraint firstItem="awQ-Op-dJs" firstAttribute="leading" secondItem="AOl-Jg-MVC" secondAttribute="leading" constant="30" id="H9P-HU-56L"/>
+                            <constraint firstItem="AOl-Jg-MVC" firstAttribute="trailing" secondItem="e4U-98-uQD" secondAttribute="trailing" constant="30" id="RIp-eF-oNS"/>
                             <constraint firstItem="Awt-Ip-qut" firstAttribute="top" secondItem="AOl-Jg-MVC" secondAttribute="top" id="U7Q-9M-MAk"/>
                             <constraint firstItem="AOl-Jg-MVC" firstAttribute="trailing" secondItem="Awt-Ip-qut" secondAttribute="trailing" constant="15" id="aKd-E5-MQd"/>
                             <constraint firstItem="frr-uz-U1w" firstAttribute="leading" secondItem="AOl-Jg-MVC" secondAttribute="leading" constant="30" id="cVy-GV-thr"/>
-                            <constraint firstItem="awQ-Op-dJs" firstAttribute="leading" secondItem="AOl-Jg-MVC" secondAttribute="leading" constant="30" id="efU-9a-ahr"/>
-                            <constraint firstItem="frr-uz-U1w" firstAttribute="top" secondItem="awQ-Op-dJs" secondAttribute="bottom" constant="60" id="leH-ij-65g"/>
-                            <constraint firstItem="awQ-Op-dJs" firstAttribute="top" secondItem="Awt-Ip-qut" secondAttribute="bottom" constant="50" id="ofq-eM-xuo"/>
+                            <constraint firstItem="AOl-Jg-MVC" firstAttribute="trailing" secondItem="awQ-Op-dJs" secondAttribute="trailing" constant="30" id="rhE-EC-qci"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="list.bullet.rectangle.portrait" catalog="system" selectedImage="list.bullet.rectangle.portrait.fill" id="C7t-K6-gum"/>
                     <navigationItem key="navigationItem" id="moy-eR-05b"/>
                     <connections>
+                        <outlet property="aroundYouButton" destination="e4U-98-uQD" id="peD-fc-Hyh"/>
                         <outlet property="countryButton" destination="frr-uz-U1w" id="TdK-2F-HBd"/>
                         <outlet property="univButton" destination="awQ-Op-dJs" id="fRD-ua-PPT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfC-TW-HG6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232" y="1266"/>
+            <point key="canvasLocation" x="231.8840579710145" y="1265.625"/>
         </scene>
         <!--Community Contents View Controller-->
         <scene sceneID="fSD-il-XkX">
@@ -754,13 +760,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg6-Oi-XEa">
-                                <rect key="frame" x="15" y="88" width="384" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <rect key="frame" x="15" y="88" width="384" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.33333333329999998" green="0.54117647059999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rln-GM-IlV">
-                                <rect key="frame" x="0.0" y="154" width="414" height="659"/>
+                                <rect key="frame" x="0.0" y="146.66666666666669" width="414" height="666.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommunityContentsCell" rowHeight="116" id="76W-8q-F9Q" customClass="CommunityContentsCell" customModule="SocializeApp" customModuleProvider="target">
@@ -1009,11 +1015,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02W-db-Bag">
                                 <rect key="frame" x="20" y="165.33333333333337" width="374" height="226"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-lx-SpN">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="507.33333333333331"/>
-                                        <string key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-lx-SpN">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1641,7 +1644,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 <rect key="frame" x="0.0" y="561" width="414" height="252"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="EeN-jH-xn5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" id="EeN-jH-xn5">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EeN-jH-xn5" id="3kp-hA-Y8X">
@@ -2004,7 +2007,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yMu-oO-U90"/>
-                        <color key="backgroundColor" red="0.71669884601804745" green="0.88986810052660903" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.71764705882352942" green="0.8901960784313725" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="qAp-WT-G49" secondAttribute="bottom" constant="20" id="1b3-5L-px4"/>
                             <constraint firstItem="KAc-4u-ZsL" firstAttribute="top" secondItem="yMu-oO-U90" secondAttribute="top" id="8tw-1b-z5r"/>
@@ -2037,10 +2040,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="0rF-G6-Cr0"/>
+        <segue reference="gfz-E3-zMP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="at.circle" catalog="system" width="128" height="121"/>
+        <image name="bg1" width="1000" height="1000"/>
+        <image name="bg2" width="1000" height="1000"/>
+        <image name="bg3" width="1000" height="1000"/>
         <image name="default-profile-image" width="426.66665649414062" height="426.66665649414062"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>

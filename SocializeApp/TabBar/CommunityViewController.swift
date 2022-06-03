@@ -13,13 +13,31 @@ class CommunityViewController: UIViewController {
 
     @IBOutlet weak var univButton: UIButton!
     @IBOutlet weak var countryButton: UIButton!
+    @IBOutlet weak var aroundYouButton: UIButton!
     
     static var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bringInfo()
+        self.addButtonShadow()
         // Do any additional setup after loading the view.
+    }
+    
+    private func addButtonShadow() {
+        self.univButton.layer.shadowRadius = 10
+        self.univButton.layer.shadowOpacity = 1.0
+        self.univButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        self.univButton.layer.shadowColor = UIColor.darkGray.cgColor
+        self.countryButton.layer.shadowRadius = 10
+        self.countryButton.layer.shadowOpacity = 1.0
+        self.countryButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        self.countryButton.layer.shadowColor = UIColor.darkGray.cgColor
+        self.aroundYouButton.layer.shadowRadius = 10
+        self.aroundYouButton.layer.shadowOpacity = 1.0
+        self.aroundYouButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        self.aroundYouButton.layer.shadowColor = UIColor.darkGray.cgColor
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,6 +48,10 @@ class CommunityViewController: UIViewController {
         } else if segue.identifier == "countryCommunitySegue" {
             if let vc = segue.destination as? CommunityContentsViewController {
                 vc.communityName = CommunityViewController.user.nationality!.uppercased()
+            }
+        } else if segue.identifier == "aroundYouCommunitySegue" {
+            if let vc = segue.destination as? CommunityContentsViewController {
+                vc.communityName = CommunityViewController.user.univLocation!.uppercased()
             }
         }
     }
