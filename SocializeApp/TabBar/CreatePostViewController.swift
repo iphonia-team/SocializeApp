@@ -66,29 +66,6 @@ class CreatePostViewController: UIViewController {
         self.postButton.isEnabled = !(self.titleTextField.text?.isEmpty ?? true) && !(self.contentTextView.text.isEmpty)
     }
     
-    private func addKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(_ noti: NSNotification) {
-        if keyboardIsOpened == false {
-            self.view.frame.origin.y -= 20
-            keyboardIsOpened = true
-        }
-    }
-    
-    @objc func keyboardWillHide(_ noti: NSNotification) {
-        if keyboardIsOpened == true {
-            self.view.frame.origin.y += 20
-            keyboardIsOpened = false
-        }
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

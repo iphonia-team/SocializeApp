@@ -271,6 +271,8 @@ class CommunityContentsDetailViewController: UIViewController {
             "email" : self.user.email!
         ])
         
+        self.commentTextField.text = ""
+        
         docRef.updateData([
             "commentCount" : self.postInfo.commentCount! + 1
         ])
@@ -297,12 +299,6 @@ class CommunityContentsDetailViewController: UIViewController {
             }
             self.commentsTableView.reloadData()
         }
-        
-        self.addKeyboardNotifications()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.removeKeyboardNotifications()
     }
     
     private func configureInputField() {
@@ -312,29 +308,6 @@ class CommunityContentsDetailViewController: UIViewController {
     
     @objc private func commentTextFieldDidChange() {
         self.sendButton.isEnabled = !(self.commentTextField.text?.isEmpty ?? true)
-    }
-    
-    private func addKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(_ noti: NSNotification) {
-        if keyboardIsOpened == false {
-            self.view.frame.origin.y -= 40
-            keyboardIsOpened = true
-        }
-    }
-    
-    @objc func keyboardWillHide(_ noti: NSNotification) {
-        if keyboardIsOpened == true {
-            self.view.frame.origin.y += 40
-            keyboardIsOpened = false
-        }
     }
     /*
     // MARK: - Navigation

@@ -217,7 +217,7 @@ class ChatListViewController: UIViewController {
         let unixTime = Double(stringDate) ?? 0.0
         let myTime = Date(timeIntervalSince1970: unixTime)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a, MM/dd"
+        dateFormatter.dateFormat = "h:mm a  MM/dd"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
         let date = dateFormatter.string(from: myTime)
